@@ -1,316 +1,460 @@
 <!DOCTYPE html>
-<html lang="hr">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SkillTrack – Investiraj u budućnost</title>
-
+<title>Velvet Throttle — Moto Gear for Girls</title>
 <style>
-body {
-    margin: 0;
-    font-family: "Segoe UI", Arial, sans-serif;
-    background: #f8fafc;
-    color: #0f172a;
-    line-height: 1.6;
-}
+  :root{
+    --asphalt:#14151a;
+    --asphalt2:#1e2026;
+    --cream:#f2f0ea;
+    --magenta:#e8195b;
+    --amber:#ffb627;
+    --chrome:#9ca3af;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{
+    background:var(--cream);
+    color:var(--asphalt);
+    font-family:'Segoe UI', Arial, sans-serif;
+    line-height:1.5;
+  }
+  h1,h2,h3,.brand{
+    font-family:'Arial Narrow', Arial, sans-serif;
+    font-weight:800;
+    letter-spacing:0.5px;
+    text-transform:uppercase;
+  }
 
-a { text-decoration: none; color: inherit; }
+  /* ---------- HEADER ---------- */
+  header{
+    background:var(--asphalt);
+    color:var(--cream);
+    padding:18px 5%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    position:sticky;
+    top:0;
+    z-index:100;
+    border-bottom:3px solid var(--magenta);
+  }
+  .brand{
+    font-size:1.6rem;
+    color:var(--cream);
+    display:flex;
+    align-items:center;
+    gap:10px;
+  }
+  .brand span{color:var(--magenta);}
+  nav{display:flex;gap:28px;}
+  nav a{
+    color:var(--chrome);
+    text-decoration:none;
+    font-size:0.95rem;
+    font-weight:600;
+    cursor:pointer;
+  }
+  nav a:hover{color:var(--amber);}
+  #cart-btn{
+    background:var(--magenta);
+    color:white;
+    border:none;
+    padding:10px 18px;
+    border-radius:2px;
+    font-weight:700;
+    cursor:pointer;
+    font-size:0.9rem;
+  }
+  #cart-btn:hover{background:#c91250;}
 
-/* VIDEO SECTION */
-.video-section {
-    width: 100%;
-    height: 70vh;
-    overflow: hidden;
-    position: relative;
-    background: black;
-}
+  /* ---------- HERO ---------- */
+  .hero{
+    background:var(--asphalt);
+    color:var(--cream);
+    padding:70px 5% 90px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:40px;
+    flex-wrap:wrap;
+  }
+  .hero-text{max-width:520px;}
+  .hero-text h1{
+    font-size:3.2rem;
+    line-height:1.05;
+    margin-bottom:18px;
+  }
+  .hero-text h1 em{
+    font-style:normal;
+    color:var(--magenta);
+  }
+  .hero-text p{
+    color:var(--chrome);
+    font-size:1.05rem;
+    margin-bottom:26px;
+  }
+  .btn-primary{
+    background:var(--amber);
+    color:var(--asphalt);
+    border:none;
+    padding:14px 28px;
+    font-weight:800;
+    text-transform:uppercase;
+    letter-spacing:1px;
+    cursor:pointer;
+    border-radius:2px;
+  }
+  .btn-primary:hover{background:#e6a41f;}
 
-.video-section video {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
+  /* ---------- CATEGORY BAR ---------- */
+  .cat-bar{
+    display:flex;
+    gap:12px;
+    padding:24px 5%;
+    flex-wrap:wrap;
+    background:var(--cream);
+    border-bottom:1px solid #ddd;
+  }
+  .cat-btn{
+    background:none;
+    border:2px solid var(--asphalt);
+    padding:8px 18px;
+    font-weight:700;
+    cursor:pointer;
+    border-radius:20px;
+    text-transform:uppercase;
+    font-size:0.85rem;
+  }
+  .cat-btn.active, .cat-btn:hover{
+    background:var(--asphalt);
+    color:var(--cream);
+  }
 
-.video-overlay {
-    position: absolute;
-    bottom: 40px;
-    left: 10%;
-    color: white;
-    background: rgba(0,0,0,0.5);
-    padding: 20px 30px;
-    border-radius: 12px;
-}
+  /* ---------- PRODUCTS ---------- */
+  .products{
+    padding:40px 5% 80px;
+    display:grid;
+    grid-template-columns:repeat(auto-fill, minmax(230px,1fr));
+    gap:24px;
+  }
+  .card{
+    background:white;
+    border-radius:8px;
+    overflow:hidden;
+    box-shadow:0 2px 10px rgba(0,0,0,0.08);
+    display:flex;
+    flex-direction:column;
+  }
+  .card-img{
+    background:var(--asphalt2);
+    height:170px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+  .card-img svg{width:90px;height:90px;}
+  .card-body{padding:16px;display:flex;flex-direction:column;flex:1;}
+  .card-cat{
+    font-size:0.7rem;
+    color:var(--magenta);
+    font-weight:700;
+    text-transform:uppercase;
+    margin-bottom:4px;
+  }
+  .card-title{font-size:1.05rem;margin-bottom:6px;}
+  .card-desc{font-size:0.85rem;color:#666;flex:1;margin-bottom:12px;}
+  .card-footer{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+  }
+  .price{font-weight:800;font-size:1.1rem;}
+  .add-btn{
+    background:var(--asphalt);
+    color:white;
+    border:none;
+    padding:8px 14px;
+    border-radius:4px;
+    cursor:pointer;
+    font-size:0.85rem;
+    font-weight:700;
+  }
+  .add-btn:hover{background:var(--magenta);}
 
-/* HEADER */
-header {
-    background: linear-gradient(120deg, #0ea5e9, #38bdf8);
-    color: white;
-    padding: 60px 10%;
-}
+  /* ---------- CART DRAWER ---------- */
+  #cart-overlay{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,0.5);
+    display:none;
+    z-index:200;
+  }
+  #cart-drawer{
+    position:fixed;
+    top:0;
+    right:-400px;
+    width:360px;
+    max-width:90%;
+    height:100%;
+    background:var(--cream);
+    z-index:201;
+    transition:right 0.3s ease;
+    display:flex;
+    flex-direction:column;
+  }
+  #cart-drawer.open{right:0;}
+  .cart-header{
+    background:var(--asphalt);
+    color:var(--cream);
+    padding:18px 20px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+  }
+  .cart-header h2{font-size:1.2rem;}
+  #close-cart{
+    background:none;border:none;color:var(--cream);
+    font-size:1.4rem;cursor:pointer;
+  }
+  #cart-items{
+    flex:1;
+    overflow-y:auto;
+    padding:16px 20px;
+  }
+  .cart-item{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:12px 0;
+    border-bottom:1px solid #ddd;
+  }
+  .cart-item-name{font-weight:700;font-size:0.9rem;}
+  .cart-item-price{font-size:0.8rem;color:#666;}
+  .qty-controls{display:flex;align-items:center;gap:8px;}
+  .qty-controls button{
+    width:24px;height:24px;
+    border:1px solid var(--asphalt);
+    background:white;
+    cursor:pointer;
+    border-radius:4px;
+  }
+  .cart-footer{
+    padding:18px 20px;
+    border-top:2px solid var(--asphalt);
+  }
+  .cart-total{
+    display:flex;
+    justify-content:space-between;
+    font-weight:800;
+    font-size:1.2rem;
+    margin-bottom:14px;
+  }
+  .checkout-btn{
+    width:100%;
+    background:var(--magenta);
+    color:white;
+    border:none;
+    padding:14px;
+    font-weight:800;
+    text-transform:uppercase;
+    letter-spacing:1px;
+    cursor:pointer;
+    border-radius:4px;
+  }
+  .empty-cart{color:#888;text-align:center;margin-top:40px;}
 
-header h1 {
-    font-size: 48px;
-    margin-bottom: 10px;
-}
+  footer{
+    background:var(--asphalt);
+    color:var(--chrome);
+    text-align:center;
+    padding:24px;
+    font-size:0.85rem;
+  }
 
-header p {
-    font-size: 20px;
-    max-width: 700px;
-}
-
-/* CONTENT */
-section { padding: 60px 10%; }
-
-h2 { font-size: 32px; margin-bottom: 20px; }
-
-p { max-width: 900px; }
-
-/* IMAGE BLOCK */
-.image-block {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 30px;
-    margin-top: 40px;
-}
-
-.image-block img {
-    width: 100%;
-    border-radius: 12px;
-    box-shadow: 0 15px 30px rgba(0,0,0,0.15);
-}
-
-/* INVEST PACKAGES */
-.packages {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 30px;
-    margin-top: 40px;
-}
-
-.package {
-    background: white;
-    border-radius: 16px;
-    padding: 30px;
-    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-    border-top: 6px solid #38bdf8;
-    transition: 0.3s;
-    text-align: center;
-}
-
-.package:hover {
-    transform: translateY(-8px);
-}
-
-.package-icon {
-    font-size: 40px;
-    margin-bottom: 15px;
-}
-
-.package h3 {
-    font-size: 24px;
-    margin-bottom: 10px;
-}
-
-.price {
-    font-size: 32px;
-    font-weight: bold;
-    color: #0ea5e9;
-    margin: 15px 0;
-}
-
-.package ul {
-    padding-left: 20px;
-    text-align: left;
-}
-
-.package li { margin-bottom: 8px; }
-
-button {
-    margin-top: 20px;
-    padding: 12px 24px;
-    font-size: 16px;
-    background: #0ea5e9;
-    color: white;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-}
-
-button:hover { background: #0284c7; }
-
-/* CALCULATOR */
-.calculator {
-    margin-top: 60px;
-    padding: 40px;
-    background: white;
-    border-radius: 16px;
-    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-    text-align: center;
-}
-
-.calculator input {
-    padding: 12px;
-    font-size: 16px;
-    width: 200px;
-    border-radius: 8px;
-    border: 1px solid #cbd5e1;
-    margin-right: 10px;
-}
-
-.result {
-    margin-top: 20px;
-    font-size: 18px;
-    font-weight: bold;
-    color: #0ea5e9;
-}
-
-/* FOOTER */
-footer {
-    background: #020617;
-    color: #cbd5f5;
-    text-align: center;
-    padding: 30px;
-    margin-top: 60px;
-}
+  @media(max-width:600px){
+    .hero{padding:50px 5%;}
+    .hero-text h1{font-size:2.2rem;}
+    nav{display:none;}
+  }
 </style>
 </head>
-
 <body>
 
 <header>
-    <h1>SkillTrack</h1>
-    <p>
-        SkillTrack je moderna platforma za praćenje razvoja vještina i profesionalni rast.
-        Omogućuje praćenje osobnih ciljeva, analitiku napretka, gamifikaciju i edukacijske module
-        prilagođene pojedincima, školama i tvrtkama. Investirajte u rješenje spremno za globalno tržište.
-    </p>
+  <div class="brand">🏍️<span>Velvet</span>Throttle</div>
+  <nav>
+    <a onclick="filterCategory('all')">Shop</a>
+    <a onclick="filterCategory('Helmets')">Helmets</a>
+    <a onclick="filterCategory('Jackets')">Jackets</a>
+    <a onclick="filterCategory('Boots')">Boots</a>
+  </nav>
+  <button id="cart-btn" onclick="openCart()">Cart (<span id="cart-count">0</span>)</button>
 </header>
 
-<section class="video-section">
-    <video autoplay muted loop playsinline>
-        <source src="video.mp4" type="video/mp4">
-    </video>
-    <div class="video-overlay">
-        <h2>Investiraj u budućnost učenja</h2>
-        <p>Pogledaj kako SkillTrack mijenja način razvoja vještina.</p>
-    </div>
+<section class="hero">
+  <div class="hero-text">
+    <h1>Gear built for <em>her</em> ride.</h1>
+    <p>Protective motorcycle gear designed to actually fit women — armored jackets, helmets, gloves and boots that don't make you choose between safety and style.</p>
+    <button class="btn-primary" onclick="document.getElementById('shop').scrollIntoView({behavior:'smooth'})">Shop the collection</button>
+  </div>
+  <svg width="220" height="220" viewBox="0 0 220 220" fill="none">
+    <circle cx="110" cy="110" r="100" fill="#1e2026"/>
+    <path d="M60 130 Q80 80 110 80 Q140 80 160 130" stroke="#e8195b" stroke-width="6" fill="none" stroke-linecap="round"/>
+    <circle cx="70" cy="140" r="18" stroke="#ffb627" stroke-width="5" fill="none"/>
+    <circle cx="150" cy="140" r="18" stroke="#ffb627" stroke-width="5" fill="none"/>
+    <rect x="95" y="95" width="30" height="20" rx="4" fill="#f2f0ea"/>
+  </svg>
 </section>
 
-<section>
-    <h2>O projektu</h2>
-    <p>
-        SkillTrack je digitalna aplikacija koja korisnicima omogućuje praćenje osobnog razvoja kroz postavljanje ciljeva, praćenje napretka i analitiku rezultata. 
-        Platforma uključuje gamifikaciju, edukacijske module i personalizirane preporuke. Idealna je za učenike, studente i profesionalce koji žele kontinuirano razvijati svoje vještine.
-    </p>
-    <p>
-        Kroz pregled napretka, izvještaje i interaktivne funkcionalnosti, korisnici mogu jasno pratiti svoj razvoj i motivirati se za postizanje ciljeva. SkillTrack također omogućuje suradnju i praćenje timskih rezultata unutar tvrtki i škola.
-    </p>
+<div class="cat-bar" id="cat-bar">
+  <button class="cat-btn active" onclick="filterCategory('all', this)">All</button>
+  <button class="cat-btn" onclick="filterCategory('Helmets', this)">Helmets</button>
+  <button class="cat-btn" onclick="filterCategory('Jackets', this)">Jackets</button>
+  <button class="cat-btn" onclick="filterCategory('Gloves', this)">Gloves</button>
+  <button class="cat-btn" onclick="filterCategory('Boots', this)">Boots</button>
+</div>
 
-    <div class="image-block">
-        <img src="1.png" alt="Dashboard">
-        <img src="12.png" alt="Dodavanje vještina">
-        <img src="123.png" alt="Statistika napretka">
-    </div>
-</section>
-
-<section>
-    <h2>Vrste pretplate</h2>
-
-    <div class="packages">
-
-        <div class="package">
-            <div class="package-icon">🌱</div>
-            <h3>Starter</h3>
-            <p class="price">10 €</p>
-            <ul>
-                <li>Osnovni paket</li>
-                <li>Godišnji izvještaj</li>
-                <li>Osnovna funkcionalnost</li>
-            </ul>
-            <button>Odaberi paket</button>
-        </div>
-
-        <div class="package">
-            <div class="package-icon">💼</div>
-            <h3>Basic</h3>
-            <p class="price">20 €</p>
-            <ul>
-                <li>Osnovni + dodatni izvještaji</li>
-                <li>Pristup community forumu</li>
-                <li>Mjesečne analize napretka</li>
-            </ul>
-            <button>Odaberi paket</button>
-        </div>
-        
-        <div class="package">
-            <div class="package-icon">📈</div>
-            <h3>Pro</h3>
-            <p class="price">45 €</p>
-            <ul>
-                <li>Povećane mogućnosti praćenja</li>
-                <li>Detaljni izvještaji</li>
-                <li>Bez reklama</li>
-            </ul>
-            <button>Odaberi paket</button>
-        </div>
-        
-        <div class="package">
-            <div class="package-icon">🚀</div>
-            <h3>Premium</h3>
-            <p class="price">75 €</p>
-            <ul>
-                <li>Pro paket + napredni alati</li>
-                <li>Prioritetna podrška</li>
-                <li>Ekskluzivni webinari i materijali</li>
-            </ul>
-            <button>Odaberi paket</button>
-        </div>
-        
-        <div class="package">
-            <div class="package-icon">🤝</div>
-            <h3>Partner</h3>
-            <p class="price">100 €</p>
-            <ul>
-                <li>Strateško partnerstvo</li>
-                <li>Pristup roadmapu</li>
-                <li>Sudjelovanje u razvoju</li>
-            </ul>
-            <button>Kontaktiraj nas</button>
-        </div>
-    </div>
-
-    <div class="calculator">
-        <h3>Izračunaj svoj udio</h3>
-        <p>Vrijednost tvrtke: <strong>100.000 €</strong></p>
-
-        <input type="number" id="investment" placeholder="Unesi iznos (€)">
-        <button onclick="calculateShare()">Izračunaj</button>
-
-        <div class="result" id="result"></div>
-    </div>
-
-</section>
+<section class="products" id="shop"></section>
 
 <footer>
-    <p>© 2026 SkillTrack d.o.o. – Investiraj u znanje 🚀</p>
+  <p>Velvet Throttle — School Project Demo Shop. Not a real store. 🏍️</p>
 </footer>
 
+<div id="cart-overlay" onclick="closeCart()"></div>
+<div id="cart-drawer">
+  <div class="cart-header">
+    <h2>Your Cart</h2>
+    <button id="close-cart" onclick="closeCart()">&times;</button>
+  </div>
+  <div id="cart-items"></div>
+  <div class="cart-footer">
+    <div class="cart-total">
+      <span>Total</span>
+      <span id="cart-total-price">$0.00</span>
+    </div>
+    <button class="checkout-btn" onclick="checkout()">Checkout</button>
+  </div>
+</div>
+
 <script>
-function calculateShare() {
-    const companyValue = 100000;
-    const investment = parseFloat(document.getElementById("investment").value);
+const products = [
+  {id:1, name:"Aurora Full-Face Helmet", cat:"Helmets", price:189.99, desc:"Lightweight shell with a women's-fit inner liner and matte finish.", icon:'<svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" fill="#e8195b"/><rect x="20" y="55" width="60" height="20" rx="10" fill="#14151a"/></svg>'},
+  {id:2, name:"Storm Modular Helmet", cat:"Helmets", price:229.99, desc:"Flip-up visor helmet with anti-fog shield and Bluetooth-ready shell.", icon:'<svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" fill="#ffb627"/><rect x="15" y="45" width="70" height="12" fill="#14151a"/></svg>'},
+  {id:3, name:"Petal Armored Jacket", cat:"Jackets", price:159.99, desc:"CE-rated armor at shoulders and elbows, tailored for a curved fit.", icon:'<svg viewBox="0 0 100 100"><rect x="25" y="15" width="50" height="70" rx="8" fill="#e8195b"/><rect x="10" y="25" width="18" height="50" rx="6" fill="#e8195b"/><rect x="72" y="25" width="18" height="50" rx="6" fill="#e8195b"/></svg>'},
+  {id:4, name:"Nightfall Leather Jacket", cat:"Jackets", price:219.99, desc:"Genuine leather with removable thermal lining and hidden armor pockets.", icon:'<svg viewBox="0 0 100 100"><rect x="25" y="15" width="50" height="70" rx="8" fill="#14151a"/><rect x="10" y="25" width="18" height="50" rx="6" fill="#14151a"/><rect x="72" y="25" width="18" height="50" rx="6" fill="#14151a"/></svg>'},
+  {id:5, name:"Featherlight Riding Gloves", cat:"Gloves", price:49.99, desc:"Breathable knuckle-guard gloves sized for smaller hands.", icon:'<svg viewBox="0 0 100 100"><rect x="35" y="10" width="10" height="40" rx="5" fill="#9ca3af"/><rect x="47" y="5" width="10" height="45" rx="5" fill="#9ca3af"/><rect x="59" y="10" width="10" height="40" rx="5" fill="#9ca3af"/><rect x="25" y="45" width="50" height="45" rx="10" fill="#9ca3af"/></svg>'},
+  {id:6, name:"Grip Pro Gauntlet Gloves", cat:"Gloves", price:64.99, desc:"Extended wrist cuff with carbon knuckle protection.", icon:'<svg viewBox="0 0 100 100"><rect x="35" y="10" width="10" height="40" rx="5" fill="#ffb627"/><rect x="47" y="5" width="10" height="45" rx="5" fill="#ffb627"/><rect x="59" y="10" width="10" height="40" rx="5" fill="#ffb627"/><rect x="25" y="45" width="50" height="45" rx="10" fill="#ffb627"/></svg>'},
+  {id:7, name:"Rebel Ankle Boots", cat:"Boots", price:139.99, desc:"Reinforced ankle boots with a slim silhouette and non-slip sole.", icon:'<svg viewBox="0 0 100 100"><path d="M30 20 L30 60 L20 75 L85 75 L85 65 L55 65 L55 20 Z" fill="#14151a"/></svg>'},
+  {id:8, name:"Blaze Touring Boots", cat:"Boots", price:169.99, desc:"Waterproof touring boots with shifter pad and reflective trim.", icon:'<svg viewBox="0 0 100 100"><path d="M30 20 L30 60 L20 75 L85 75 L85 65 L55 65 L55 20 Z" fill="#e8195b"/></svg>'}
+];
 
-    if (!investment || investment <= 0) {
-        document.getElementById("result").innerText = "Unesite valjan iznos.";
-        return;
-    }
+let cart = JSON.parse(localStorage.getItem('vt-cart') || '{}');
 
-    const percentage = (investment / companyValue) * 100;
-
-    document.getElementById("result").innerText =
-        "Za ulaganje od " + investment + " € dobivate " +
-        percentage.toFixed(2) + "% udjela u firmi.";
+function saveCart(){
+  localStorage.setItem('vt-cart', JSON.stringify(cart));
+  updateCartCount();
 }
+
+function renderProducts(filter){
+  const container = document.getElementById('shop');
+  container.innerHTML = '';
+  const list = filter === 'all' ? products : products.filter(p => p.cat === filter);
+  list.forEach(p => {
+    const card = document.createElement('div');
+    card.className = 'card';
+    card.innerHTML = `
+      <div class="card-img">${p.icon}</div>
+      <div class="card-body">
+        <div class="card-cat">${p.cat}</div>
+        <div class="card-title">${p.name}</div>
+        <div class="card-desc">${p.desc}</div>
+        <div class="card-footer">
+          <span class="price">$${p.price.toFixed(2)}</span>
+          <button class="add-btn" onclick="addToCart(${p.id})">Add</button>
+        </div>
+      </div>`;
+    container.appendChild(card);
+  });
+}
+
+function filterCategory(cat, btn){
+  renderProducts(cat);
+  document.querySelectorAll('.cat-btn').forEach(b => b.classList.remove('active'));
+  if(btn) btn.classList.add('active');
+}
+
+function addToCart(id){
+  cart[id] = (cart[id] || 0) + 1;
+  saveCart();
+}
+
+function changeQty(id, delta){
+  cart[id] = (cart[id] || 0) + delta;
+  if(cart[id] <= 0) delete cart[id];
+  saveCart();
+  renderCart();
+}
+
+function updateCartCount(){
+  const count = Object.values(cart).reduce((a,b) => a+b, 0);
+  document.getElementById('cart-count').textContent = count;
+}
+
+function renderCart(){
+  const container = document.getElementById('cart-items');
+  const ids = Object.keys(cart);
+  if(ids.length === 0){
+    container.innerHTML = '<p class="empty-cart">Your cart is empty.</p>';
+    document.getElementById('cart-total-price').textContent = '$0.00';
+    return;
+  }
+  let total = 0;
+  container.innerHTML = '';
+  ids.forEach(id => {
+    const p = products.find(pr => pr.id == id);
+    const qty = cart[id];
+    total += p.price * qty;
+    const row = document.createElement('div');
+    row.className = 'cart-item';
+    row.innerHTML = `
+      <div>
+        <div class="cart-item-name">${p.name}</div>
+        <div class="cart-item-price">$${p.price.toFixed(2)} each</div>
+      </div>
+      <div class="qty-controls">
+        <button onclick="changeQty(${id}, -1)">-</button>
+        <span>${qty}</span>
+        <button onclick="changeQty(${id}, 1)">+</button>
+      </div>`;
+    container.appendChild(row);
+  });
+  document.getElementById('cart-total-price').textContent = '$' + total.toFixed(2);
+}
+
+function openCart(){
+  renderCart();
+  document.getElementById('cart-drawer').classList.add('open');
+  document.getElementById('cart-overlay').style.display = 'block';
+}
+function closeCart(){
+  document.getElementById('cart-drawer').classList.remove('open');
+  document.getElementById('cart-overlay').style.display = 'none';
+}
+function checkout(){
+  if(Object.keys(cart).length === 0){
+    alert('Your cart is empty!');
+    return;
+  }
+  alert('Thanks for your order! (This is a school project demo — no real payment is processed.)');
+  cart = {};
+  saveCart();
+  renderCart();
+}
+
+renderProducts('all');
+updateCartCount();
 </script>
 
 </body>
