@@ -1,461 +1,286 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="hr">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Velvet Throttle — Moto Gear for Girls</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>FerroFemme — Motoristička oprema za žene</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
   :root{
-    --asphalt:#14151a;
-    --asphalt2:#1e2026;
-    --cream:#f2f0ea;
-    --magenta:#e8195b;
-    --amber:#ffb627;
-    --chrome:#9ca3af;
+    --iron:#191816;
+    --iron-2:#231f1c;
+    --rust:#a8431f;
+    --rust-light:#c65a33;
+    --bone:#ece5d8;
+    --bone-dim:#b7ac9a;
+    --line:#38332e;
+    box-sizing:border-box;
   }
-  *{box-sizing:border-box;margin:0;padding:0;}
+  *{box-sizing:inherit;margin:0;padding:0;}
+  html{scroll-padding-top:env(safe-area-inset-top,0px);}
   body{
-    background:var(--cream);
-    color:var(--asphalt);
-    font-family:'Segoe UI', Arial, sans-serif;
-    line-height:1.5;
+    background:var(--iron);
+    color:var(--bone);
+    font-family:'Work Sans',sans-serif;
+    line-height:1.55;
+    padding-top:env(safe-area-inset-top,0px);
+    padding-bottom:env(safe-area-inset-bottom,0px);
   }
-  h1,h2,h3,.brand{
-    font-family:'Arial Narrow', Arial, sans-serif;
-    font-weight:800;
-    letter-spacing:0.5px;
-    text-transform:uppercase;
-  }
-
-  /* ---------- HEADER ---------- */
-  header{
-    background:var(--asphalt);
-    color:var(--cream);
-    padding:18px 5%;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    position:sticky;
-    top:0;
-    z-index:100;
-    border-bottom:3px solid var(--magenta);
-  }
-  .brand{
-    font-size:1.6rem;
-    color:var(--cream);
-    display:flex;
-    align-items:center;
-    gap:10px;
-  }
-  .brand span{color:var(--magenta);}
-  nav{display:flex;gap:28px;}
-  nav a{
-    color:var(--chrome);
-    text-decoration:none;
-    font-size:0.95rem;
+  h1,h2,h3{
+    font-family:'Oswald',sans-serif;
     font-weight:600;
-    cursor:pointer;
+    letter-spacing:0.01em;
+    line-height:1.08;
+    color:var(--bone);
   }
-  nav a:hover{color:var(--amber);}
-  #cart-btn{
-    background:var(--magenta);
-    color:white;
-    border:none;
-    padding:10px 18px;
-    border-radius:2px;
-    font-weight:700;
-    cursor:pointer;
-    font-size:0.9rem;
-  }
-  #cart-btn:hover{background:#c91250;}
+  a{color:inherit;}
+  img{max-width:100%;display:block;}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 24px;}
 
-  /* ---------- HERO ---------- */
+  /* NAV */
+  header{
+    position:sticky;top:0;top:env(safe-area-inset-top,0px);
+    z-index:20;background:rgba(25,24,22,0.92);backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--line);
+  }
+  nav{display:flex;align-items:center;justify-content:space-between;padding:18px 24px;max-width:1120px;margin:0 auto;}
+  .brand{font-family:'Oswald',sans-serif;font-weight:700;font-size:22px;letter-spacing:0.03em;}
+  .brand span{color:var(--rust-light);}
+  nav ul{list-style:none;display:flex;gap:32px;font-size:15px;}
+  nav ul a{text-decoration:none;color:var(--bone-dim);transition:color .2s;}
+  nav ul a:hover{color:var(--bone);}
+  .nav-cta{background:var(--rust);color:var(--bone);padding:9px 18px;border-radius:2px;text-decoration:none;font-size:14px;font-weight:600;}
+  .menu-btn{display:none;background:none;border:none;color:var(--bone);font-size:24px;cursor:pointer;}
+  @media(max-width:760px){
+    nav ul, .nav-cta{display:none;}
+    .menu-btn{display:block;}
+  }
+
+  /* HERO */
   .hero{
-    background:var(--asphalt);
-    color:var(--cream);
-    padding:70px 5% 90px;
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    gap:40px;
-    flex-wrap:wrap;
+    position:relative;overflow:hidden;
+    padding:110px 0 90px;
+    border-bottom:1px solid var(--line);
   }
-  .hero-text{max-width:520px;}
-  .hero-text h1{
-    font-size:3.2rem;
-    line-height:1.05;
-    margin-bottom:18px;
-  }
-  .hero-text h1 em{
-    font-style:normal;
-    color:var(--magenta);
-  }
-  .hero-text p{
-    color:var(--chrome);
-    font-size:1.05rem;
-    margin-bottom:26px;
-  }
-  .btn-primary{
-    background:var(--amber);
-    color:var(--asphalt);
-    border:none;
-    padding:14px 28px;
-    font-weight:800;
-    text-transform:uppercase;
-    letter-spacing:1px;
-    cursor:pointer;
-    border-radius:2px;
-  }
-  .btn-primary:hover{background:#e6a41f;}
+  .hero-grid{display:grid;grid-template-columns:1.1fr 0.9fr;gap:48px;align-items:center;}
+  @media(max-width:860px){.hero-grid{grid-template-columns:1fr;}}
+  .eyebrow{color:var(--rust-light);font-size:14px;font-weight:500;margin-bottom:18px;}
+  .hero h1{font-size:clamp(38px,6vw,64px);max-width:11ch;}
+  .hero p{margin-top:22px;max-width:46ch;color:var(--bone-dim);font-size:18px;}
+  .hero-ctas{margin-top:34px;display:flex;gap:16px;flex-wrap:wrap;}
+  .btn-primary{background:var(--rust);color:var(--bone);padding:14px 26px;text-decoration:none;font-weight:600;border-radius:2px;}
+  .btn-ghost{border:1px solid var(--line);color:var(--bone);padding:14px 26px;text-decoration:none;font-weight:500;border-radius:2px;}
+  .hero-art{width:100%;aspect-ratio:1/1;}
 
-  /* ---------- CATEGORY BAR ---------- */
-  .cat-bar{
-    display:flex;
-    gap:12px;
-    padding:24px 5%;
-    flex-wrap:wrap;
-    background:var(--cream);
-    border-bottom:1px solid #ddd;
-  }
-  .cat-btn{
-    background:none;
-    border:2px solid var(--asphalt);
-    padding:8px 18px;
-    font-weight:700;
-    cursor:pointer;
-    border-radius:20px;
-    text-transform:uppercase;
-    font-size:0.85rem;
-  }
-  .cat-btn.active, .cat-btn:hover{
-    background:var(--asphalt);
-    color:var(--cream);
-  }
+  /* MISSION STRIP */
+  .mission{padding:72px 0;border-bottom:1px solid var(--line);}
+  .mission p{font-size:clamp(20px,2.6vw,27px);font-family:'Oswald',sans-serif;font-weight:400;max-width:28ch;color:var(--bone);}
+  .mission p em{font-style:normal;color:var(--rust-light);}
 
-  /* ---------- PRODUCTS ---------- */
-  .products{
-    padding:40px 5% 80px;
-    display:grid;
-    grid-template-columns:repeat(auto-fill, minmax(230px,1fr));
-    gap:24px;
-  }
-  .card{
-    background:white;
-    border-radius:8px;
-    overflow:hidden;
-    box-shadow:0 2px 10px rgba(0,0,0,0.08);
-    display:flex;
-    flex-direction:column;
-  }
-  .card-img{
-    background:var(--asphalt2);
-    height:170px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-  }
-  .card-img svg{width:90px;height:90px;}
-  .card-body{padding:16px;display:flex;flex-direction:column;flex:1;}
-  .card-cat{
-    font-size:0.7rem;
-    color:var(--magenta);
-    font-weight:700;
-    text-transform:uppercase;
-    margin-bottom:4px;
-  }
-  .card-title{font-size:1.05rem;margin-bottom:6px;}
-  .card-desc{font-size:0.85rem;color:#666;flex:1;margin-bottom:12px;}
-  .card-footer{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-  }
-  .price{font-weight:800;font-size:1.1rem;}
-  .add-btn{
-    background:var(--asphalt);
-    color:white;
-    border:none;
-    padding:8px 14px;
-    border-radius:4px;
-    cursor:pointer;
-    font-size:0.85rem;
-    font-weight:700;
-  }
-  .add-btn:hover{background:var(--magenta);}
+  /* PILLARS */
+  .pillars{padding:80px 0;border-bottom:1px solid var(--line);}
+  .pillars-head{max-width:40ch;margin-bottom:48px;}
+  .pillars-head h2{font-size:clamp(28px,4vw,38px);}
+  .pillar-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);}
+  @media(max-width:760px){.pillar-grid{grid-template-columns:1fr;}}
+  .pillar{background:var(--iron);padding:32px;}
+  .pillar h3{font-size:19px;margin-bottom:10px;}
+  .pillar p{color:var(--bone-dim);font-size:15px;}
 
-  /* ---------- CART DRAWER ---------- */
-  #cart-overlay{
-    position:fixed;
-    inset:0;
-    background:rgba(0,0,0,0.5);
-    display:none;
-    z-index:200;
-  }
-  #cart-drawer{
-    position:fixed;
-    top:0;
-    right:-400px;
-    width:360px;
-    max-width:90%;
-    height:100%;
-    background:var(--cream);
-    z-index:201;
-    transition:right 0.3s ease;
-    display:flex;
-    flex-direction:column;
-  }
-  #cart-drawer.open{right:0;}
-  .cart-header{
-    background:var(--asphalt);
-    color:var(--cream);
-    padding:18px 20px;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-  }
-  .cart-header h2{font-size:1.2rem;}
-  #close-cart{
-    background:none;border:none;color:var(--cream);
-    font-size:1.4rem;cursor:pointer;
-  }
-  #cart-items{
-    flex:1;
-    overflow-y:auto;
-    padding:16px 20px;
-  }
-  .cart-item{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    padding:12px 0;
-    border-bottom:1px solid #ddd;
-  }
-  .cart-item-name{font-weight:700;font-size:0.9rem;}
-  .cart-item-price{font-size:0.8rem;color:#666;}
-  .qty-controls{display:flex;align-items:center;gap:8px;}
-  .qty-controls button{
-    width:24px;height:24px;
-    border:1px solid var(--asphalt);
-    background:white;
-    cursor:pointer;
-    border-radius:4px;
-  }
-  .cart-footer{
-    padding:18px 20px;
-    border-top:2px solid var(--asphalt);
-  }
-  .cart-total{
-    display:flex;
-    justify-content:space-between;
-    font-weight:800;
-    font-size:1.2rem;
-    margin-bottom:14px;
-  }
-  .checkout-btn{
-    width:100%;
-    background:var(--magenta);
-    color:white;
-    border:none;
-    padding:14px;
-    font-weight:800;
-    text-transform:uppercase;
-    letter-spacing:1px;
-    cursor:pointer;
-    border-radius:4px;
-  }
-  .empty-cart{color:#888;text-align:center;margin-top:40px;}
+  /* PRODUCTS */
+  .products{padding:80px 0;border-bottom:1px solid var(--line);}
+  .products-head{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;margin-bottom:40px;flex-wrap:wrap;}
+  .products-head h2{font-size:clamp(28px,4vw,38px);}
+  .products-head p{color:var(--bone-dim);max-width:40ch;}
+  .product-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;}
+  @media(max-width:860px){.product-grid{grid-template-columns:repeat(2,1fr);}}
+  .product-card{border:1px solid var(--line);padding:22px;transition:border-color .2s;}
+  .product-card:hover{border-color:var(--rust);}
+  .product-card .icon{width:40px;height:40px;margin-bottom:18px;color:var(--rust-light);}
+  .product-card h3{font-size:17px;margin-bottom:8px;}
+  .product-card p{color:var(--bone-dim);font-size:14px;}
 
-  footer{
-    background:var(--asphalt);
-    color:var(--chrome);
-    text-align:center;
-    padding:24px;
-    font-size:0.85rem;
-  }
+  /* COMMUNITY */
+  .community{padding:80px 0;border-bottom:1px solid var(--line);display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;}
+  @media(max-width:860px){.community{grid-template-columns:1fr;}}
+  .community h2{font-size:clamp(26px,3.6vw,34px);margin-bottom:16px;}
+  .community p{color:var(--bone-dim);max-width:46ch;margin-bottom:20px;}
+  .ig-handle{color:var(--rust-light);text-decoration:none;font-weight:600;}
+  .community-art{aspect-ratio:4/3;border:1px solid var(--line);}
 
-  @media(max-width:600px){
-    .hero{padding:50px 5%;}
-    .hero-text h1{font-size:2.2rem;}
-    nav{display:none;}
+  /* NEWSLETTER */
+  .newsletter{padding:80px 0;}
+  .nl-box{background:var(--iron-2);border:1px solid var(--line);padding:48px;display:grid;grid-template-columns:1.2fr 1fr;gap:32px;align-items:center;}
+  @media(max-width:760px){.nl-box{grid-template-columns:1fr;padding:32px;}}
+  .nl-box h2{font-size:clamp(24px,3.4vw,30px);margin-bottom:10px;}
+  .nl-box p{color:var(--bone-dim);font-size:15px;}
+  form.nl-form{display:flex;gap:10px;flex-wrap:wrap;}
+  .nl-form input[type=email]{
+    flex:1;min-width:180px;background:var(--iron);border:1px solid var(--line);
+    color:var(--bone);padding:13px 14px;font-family:inherit;font-size:15px;border-radius:2px;
   }
+  .nl-form input::placeholder{color:var(--bone-dim);}
+  .nl-form button{background:var(--rust);color:var(--bone);border:none;padding:13px 22px;font-weight:600;border-radius:2px;cursor:pointer;font-family:inherit;font-size:15px;}
+  .nl-note{font-size:13px;color:var(--bone-dim);margin-top:10px;}
+
+  /* FOOTER */
+  footer{border-top:1px solid var(--line);padding:40px 0;}
+  .foot-row{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;}
+  .foot-row .brand{font-size:18px;}
+  .foot-links{display:flex;gap:24px;list-style:none;font-size:14px;color:var(--bone-dim);}
+  .foot-links a{text-decoration:none;}
+  .foot-bottom{margin-top:28px;font-size:13px;color:var(--bone-dim);}
+
+  @media (prefers-reduced-motion: reduce){ *{transition:none!important;} }
 </style>
 </head>
 <body>
 
 <header>
-  <div class="brand">🏍️<span>Velvet</span>Throttle</div>
   <nav>
-    <a onclick="filterCategory('all')">Shop</a>
-    <a onclick="filterCategory('Helmets')">Helmets</a>
-    <a onclick="filterCategory('Jackets')">Jackets</a>
-    <a onclick="filterCategory('Boots')">Boots</a>
+    <div class="brand">Ferro<span>Femme</span></div>
+    <ul>
+      <li><a href="#proizvodi">Proizvodi</a></li>
+      <li><a href="#zasto">Zašto FerroFemme</a></li>
+      <li><a href="#zajednica">Zajednica</a></li>
+    </ul>
+    <a class="nav-cta" href="#newsletter">Pridruži se</a>
+    <button class="menu-btn" aria-label="Izbornik">☰</button>
   </nav>
-  <button id="cart-btn" onclick="openCart()">Cart (<span id="cart-count">0</span>)</button>
 </header>
 
 <section class="hero">
-  <div class="hero-text">
-    <h1>Gear built for <em>her</em> ride.</h1>
-    <p>Protective motorcycle gear designed to actually fit women — armored jackets, helmets, gloves and boots that don't make you choose between safety and style.</p>
-    <button class="btn-primary" onclick="document.getElementById('shop').scrollIntoView({behavior:'smooth'})">Shop the collection</button>
+  <div class="wrap hero-grid">
+    <div>
+      <div class="eyebrow">Motoristička oprema dizajnirana za ženska tijela</div>
+      <h1>Krojena za vas, ne prilagođena vama.</h1>
+      <p>Kacige, jakne, rukavice i čizme razvijene od prve skice prema ženskoj građi — uz punu CE sigurnosnu certifikaciju i identitet koji ne pristaje na kompromis.</p>
+      <div class="hero-ctas">
+        <a class="btn-primary" href="#proizvodi">Pogledaj ponudu</a>
+        <a class="btn-ghost" href="#zasto">Zašto FerroFemme</a>
+      </div>
+    </div>
+    <svg class="hero-art" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="200" cy="200" r="150" fill="none" stroke="#38332e" stroke-width="1"/>
+      <circle cx="200" cy="200" r="110" fill="none" stroke="#38332e" stroke-width="1"/>
+      <path d="M130 230 Q140 140 220 130 Q290 122 280 190 Q272 240 210 250 Q150 258 130 230 Z" fill="none" stroke="#c65a33" stroke-width="2.5"/>
+      <path d="M160 170 Q200 150 240 170" fill="none" stroke="#ece5d8" stroke-width="1.5" opacity="0.6"/>
+      <circle cx="200" cy="195" r="6" fill="#c65a33"/>
+      <path d="M90 300 L310 300" stroke="#38332e" stroke-width="1"/>
+      <path d="M110 310 L290 310" stroke="#38332e" stroke-width="1"/>
+    </svg>
   </div>
-  <svg width="220" height="220" viewBox="0 0 220 220" fill="none">
-    <circle cx="110" cy="110" r="100" fill="#1e2026"/>
-    <path d="M60 130 Q80 80 110 80 Q140 80 160 130" stroke="#e8195b" stroke-width="6" fill="none" stroke-linecap="round"/>
-    <circle cx="70" cy="140" r="18" stroke="#ffb627" stroke-width="5" fill="none"/>
-    <circle cx="150" cy="140" r="18" stroke="#ffb627" stroke-width="5" fill="none"/>
-    <rect x="95" y="95" width="30" height="20" rx="4" fill="#f2f0ea"/>
+</section>
+
+<section class="mission">
+  <div class="wrap">
+    <p>Većina proizvođača ženama nudi tek umanjene muške modele. <em>FerroFemme</em> kreće od ženske mjere — ne od kompromisa.</p>
+  </div>
+</section>
+
+<section class="pillars" id="zasto">
+  <div class="wrap">
+    <div class="pillars-head">
+      <h2>Tri stvari na kojima ne popuštamo</h2>
+    </div>
+    <div class="pillar-grid">
+      <div class="pillar">
+        <h3>Sigurnosna certifikacija</h3>
+        <p>Puna CE certifikacija na svakom komadu opreme — sigurnost nikad nije opcija koju skraćujemo zbog kroja.</p>
+      </div>
+      <div class="pillar">
+        <h3>Kroj za žensku građu</h3>
+        <p>Svaki proizvod razvijen od temeljnih mjera, ne prekrojen iz muške linije — pristaje onako kako bi trebao.</p>
+      </div>
+      <div class="pillar">
+        <h3>Identitet bez kliševa</h3>
+        <p>Ni jeftina unisex ponuda, ni infantilizirana "roza" oprema — sofisticiran dizajn za žene koje voze ozbiljno.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="products" id="proizvodi">
+  <div class="wrap">
+    <div class="products-head">
+      <h2>Ponuda</h2>
+      <p>Pet kategorija opreme, svaka razvijena posebno za žensku motorističku građu.</p>
+    </div>
+    <div class="product-grid">
+      <div class="product-card">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2a8 8 0 0 0-8 8v6a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-6a8 8 0 0 0-8-8Z"/><path d="M8 14h8"/></svg>
+        <h3>Kacige</h3>
+        <p>Prilagođen oblik ljuske i unutarnje podstave ženskoj glavi i vratnoj liniji.</p>
+      </div>
+      <div class="product-card">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 7 2 9l2 4h2v9h12v-9h2l2-4-4-2-2 2h-8z"/></svg>
+        <h3>Jakne</h3>
+        <p>Krojene prema struku i ramenima, uz zaštitne umetke na ključnim točkama.</p>
+      </div>
+      <div class="product-card">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M7 11V5a2 2 0 0 1 4 0v4M11 9V4a2 2 0 0 1 4 0v5M15 9V6a2 2 0 0 1 4 0v8a6 6 0 0 1-6 6H9a6 6 0 0 1-6-6v-3l3-1"/></svg>
+        <h3>Rukavice</h3>
+        <p>Uži kroj dlana i prstiju, bez gubitka osjeta kvačila i kočnice.</p>
+      </div>
+      <div class="product-card">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 2v9l-4 5v6h10v-4h6v-5l-4-2V2z"/></svg>
+        <h3>Čizme i štitnici</h3>
+        <p>Uži gležanj i potkoljenica, puna zaštita bez osjećaja glomaznosti.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="community" id="zajednica">
+  <div>
+    <h2>Gradimo zajednicu, ne samo katalog</h2>
+    <p>Priče voznica, pitanja o odabiru opreme i pogled iza kulisa — pratite nas tamo gdje smo najaktivnije.</p>
+    <a class="ig-handle" href="#" target="_blank" rel="noopener">@ferrofemme na Instagramu →</a>
+  </div>
+  <svg class="community-art" viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+    <rect width="400" height="300" fill="#231f1c"/>
+    <circle cx="90" cy="150" r="3" fill="#c65a33"/>
+    <circle cx="200" cy="90" r="3" fill="#c65a33"/>
+    <circle cx="310" cy="160" r="3" fill="#c65a33"/>
+    <circle cx="150" cy="210" r="3" fill="#ece5d8" opacity="0.4"/>
+    <path d="M90 150 L200 90 L310 160" stroke="#38332e" stroke-width="1" fill="none"/>
+    <path d="M200 90 L150 210" stroke="#38332e" stroke-width="1" fill="none"/>
   </svg>
 </section>
 
-<div class="cat-bar" id="cat-bar">
-  <button class="cat-btn active" onclick="filterCategory('all', this)">All</button>
-  <button class="cat-btn" onclick="filterCategory('Helmets', this)">Helmets</button>
-  <button class="cat-btn" onclick="filterCategory('Jackets', this)">Jackets</button>
-  <button class="cat-btn" onclick="filterCategory('Gloves', this)">Gloves</button>
-  <button class="cat-btn" onclick="filterCategory('Boots', this)">Boots</button>
-</div>
-
-<section class="products" id="shop"></section>
+<section class="newsletter" id="newsletter">
+  <div class="wrap">
+    <div class="nl-box">
+      <div>
+        <h2>Budite prve koje saznaju</h2>
+        <p>Prijavite se i ostvarite popust na prvu kupnju, uz edukativne savjete o odabiru opreme.</p>
+      </div>
+      <div>
+        <form class="nl-form" onsubmit="event.preventDefault(); this.querySelector('button').textContent='Hvala!';">
+          <input type="email" placeholder="vas.email@primjer.com" required>
+          <button type="submit">Prijavi se</button>
+        </form>
+        <div class="nl-note">Bez spama. Odjava u svakom trenutku.</div>
+      </div>
+    </div>
+  </div>
+</section>
 
 <footer>
-  <p>Velvet Throttle — School Project Demo Shop. Not a real store. 🏍️</p>
-</footer>
-
-<div id="cart-overlay" onclick="closeCart()"></div>
-<div id="cart-drawer">
-  <div class="cart-header">
-    <h2>Your Cart</h2>
-    <button id="close-cart" onclick="closeCart()">&times;</button>
-  </div>
-  <div id="cart-items"></div>
-  <div class="cart-footer">
-    <div class="cart-total">
-      <span>Total</span>
-      <span id="cart-total-price">$0.00</span>
+  <div class="wrap">
+    <div class="foot-row">
+      <div class="brand">Ferro<span style="color:#c65a33">Femme</span></div>
+      <ul class="foot-links">
+        <li><a href="#proizvodi">Proizvodi</a></li>
+        <li><a href="#zasto">Zašto FerroFemme</a></li>
+        <li><a href="#newsletter">Newsletter</a></li>
+      </ul>
     </div>
-    <button class="checkout-btn" onclick="checkout()">Checkout</button>
+    <div class="foot-bottom">© 2026 FerroFemme. Sva prava pridržana.</div>
   </div>
-</div>
-
-<script>
-const products = [
-  {id:1, name:"Aurora Full-Face Helmet", cat:"Helmets", price:189.99, desc:"Lightweight shell with a women's-fit inner liner and matte finish.", icon:'<svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" fill="#e8195b"/><rect x="20" y="55" width="60" height="20" rx="10" fill="#14151a"/></svg>'},
-  {id:2, name:"Storm Modular Helmet", cat:"Helmets", price:229.99, desc:"Flip-up visor helmet with anti-fog shield and Bluetooth-ready shell.", icon:'<svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" fill="#ffb627"/><rect x="15" y="45" width="70" height="12" fill="#14151a"/></svg>'},
-  {id:3, name:"Petal Armored Jacket", cat:"Jackets", price:159.99, desc:"CE-rated armor at shoulders and elbows, tailored for a curved fit.", icon:'<svg viewBox="0 0 100 100"><rect x="25" y="15" width="50" height="70" rx="8" fill="#e8195b"/><rect x="10" y="25" width="18" height="50" rx="6" fill="#e8195b"/><rect x="72" y="25" width="18" height="50" rx="6" fill="#e8195b"/></svg>'},
-  {id:4, name:"Nightfall Leather Jacket", cat:"Jackets", price:219.99, desc:"Genuine leather with removable thermal lining and hidden armor pockets.", icon:'<svg viewBox="0 0 100 100"><rect x="25" y="15" width="50" height="70" rx="8" fill="#14151a"/><rect x="10" y="25" width="18" height="50" rx="6" fill="#14151a"/><rect x="72" y="25" width="18" height="50" rx="6" fill="#14151a"/></svg>'},
-  {id:5, name:"Featherlight Riding Gloves", cat:"Gloves", price:49.99, desc:"Breathable knuckle-guard gloves sized for smaller hands.", icon:'<svg viewBox="0 0 100 100"><rect x="35" y="10" width="10" height="40" rx="5" fill="#9ca3af"/><rect x="47" y="5" width="10" height="45" rx="5" fill="#9ca3af"/><rect x="59" y="10" width="10" height="40" rx="5" fill="#9ca3af"/><rect x="25" y="45" width="50" height="45" rx="10" fill="#9ca3af"/></svg>'},
-  {id:6, name:"Grip Pro Gauntlet Gloves", cat:"Gloves", price:64.99, desc:"Extended wrist cuff with carbon knuckle protection.", icon:'<svg viewBox="0 0 100 100"><rect x="35" y="10" width="10" height="40" rx="5" fill="#ffb627"/><rect x="47" y="5" width="10" height="45" rx="5" fill="#ffb627"/><rect x="59" y="10" width="10" height="40" rx="5" fill="#ffb627"/><rect x="25" y="45" width="50" height="45" rx="10" fill="#ffb627"/></svg>'},
-  {id:7, name:"Rebel Ankle Boots", cat:"Boots", price:139.99, desc:"Reinforced ankle boots with a slim silhouette and non-slip sole.", icon:'<svg viewBox="0 0 100 100"><path d="M30 20 L30 60 L20 75 L85 75 L85 65 L55 65 L55 20 Z" fill="#14151a"/></svg>'},
-  {id:8, name:"Blaze Touring Boots", cat:"Boots", price:169.99, desc:"Waterproof touring boots with shifter pad and reflective trim.", icon:'<svg viewBox="0 0 100 100"><path d="M30 20 L30 60 L20 75 L85 75 L85 65 L55 65 L55 20 Z" fill="#e8195b"/></svg>'}
-];
-
-let cart = JSON.parse(localStorage.getItem('vt-cart') || '{}');
-
-function saveCart(){
-  localStorage.setItem('vt-cart', JSON.stringify(cart));
-  updateCartCount();
-}
-
-function renderProducts(filter){
-  const container = document.getElementById('shop');
-  container.innerHTML = '';
-  const list = filter === 'all' ? products : products.filter(p => p.cat === filter);
-  list.forEach(p => {
-    const card = document.createElement('div');
-    card.className = 'card';
-    card.innerHTML = `
-      <div class="card-img">${p.icon}</div>
-      <div class="card-body">
-        <div class="card-cat">${p.cat}</div>
-        <div class="card-title">${p.name}</div>
-        <div class="card-desc">${p.desc}</div>
-        <div class="card-footer">
-          <span class="price">$${p.price.toFixed(2)}</span>
-          <button class="add-btn" onclick="addToCart(${p.id})">Add</button>
-        </div>
-      </div>`;
-    container.appendChild(card);
-  });
-}
-
-function filterCategory(cat, btn){
-  renderProducts(cat);
-  document.querySelectorAll('.cat-btn').forEach(b => b.classList.remove('active'));
-  if(btn) btn.classList.add('active');
-}
-
-function addToCart(id){
-  cart[id] = (cart[id] || 0) + 1;
-  saveCart();
-}
-
-function changeQty(id, delta){
-  cart[id] = (cart[id] || 0) + delta;
-  if(cart[id] <= 0) delete cart[id];
-  saveCart();
-  renderCart();
-}
-
-function updateCartCount(){
-  const count = Object.values(cart).reduce((a,b) => a+b, 0);
-  document.getElementById('cart-count').textContent = count;
-}
-
-function renderCart(){
-  const container = document.getElementById('cart-items');
-  const ids = Object.keys(cart);
-  if(ids.length === 0){
-    container.innerHTML = '<p class="empty-cart">Your cart is empty.</p>';
-    document.getElementById('cart-total-price').textContent = '$0.00';
-    return;
-  }
-  let total = 0;
-  container.innerHTML = '';
-  ids.forEach(id => {
-    const p = products.find(pr => pr.id == id);
-    const qty = cart[id];
-    total += p.price * qty;
-    const row = document.createElement('div');
-    row.className = 'cart-item';
-    row.innerHTML = `
-      <div>
-        <div class="cart-item-name">${p.name}</div>
-        <div class="cart-item-price">$${p.price.toFixed(2)} each</div>
-      </div>
-      <div class="qty-controls">
-        <button onclick="changeQty(${id}, -1)">-</button>
-        <span>${qty}</span>
-        <button onclick="changeQty(${id}, 1)">+</button>
-      </div>`;
-    container.appendChild(row);
-  });
-  document.getElementById('cart-total-price').textContent = '$' + total.toFixed(2);
-}
-
-function openCart(){
-  renderCart();
-  document.getElementById('cart-drawer').classList.add('open');
-  document.getElementById('cart-overlay').style.display = 'block';
-}
-function closeCart(){
-  document.getElementById('cart-drawer').classList.remove('open');
-  document.getElementById('cart-overlay').style.display = 'none';
-}
-function checkout(){
-  if(Object.keys(cart).length === 0){
-    alert('Your cart is empty!');
-    return;
-  }
-  alert('Thanks for your order! (This is a school project demo — no real payment is processed.)');
-  cart = {};
-  saveCart();
-  renderCart();
-}
-
-renderProducts('all');
-updateCartCount();
-</script>
+</footer>
 
 </body>
 </html>
