@@ -1,0 +1,917 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>FerroFemme — Motoristička oprema za žene</title>
+<meta name="description" content="FerroFemme: motoristička oprema krojena za žensku građu — kacige, jakne, rukavice, čizme i dodaci s punom CE certifikacijom.">
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bordo:#7a1f2b;
+    --bordo-dark:#5a1420;
+    --rose:#c9958a;
+    --rose-light:#e9cfc8;
+    --blush:#f6e8e4;
+    --cream:#f8f3e0;
+    --navy:#17375e;
+    --ink:#2a2224;
+    --ink-dim:#6f6266;
+    --white:#ffffff;
+    --line:#e6d6cf;
+    --radius:14px;
+    --shadow:0 10px 30px rgba(90,20,32,.12);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;scroll-padding-top:84px;}
+  body{
+    background:var(--cream);color:var(--ink);
+    font-family:'Work Sans',system-ui,sans-serif;line-height:1.6;
+    padding-bottom:env(safe-area-inset-bottom,0px);
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,h4{font-family:'Oswald',Impact,sans-serif;font-weight:600;line-height:1.08;letter-spacing:.01em;color:var(--bordo-dark);}
+  a{color:inherit;}
+  button{font-family:inherit;cursor:pointer;}
+  img,svg{max-width:100%;display:block;}
+  .wrap{max-width:1160px;margin:0 auto;padding:0 24px;}
+  section{padding:92px 0;}
+  .eyebrow{display:inline-block;font-size:13px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--bordo);margin-bottom:14px;}
+  .section-head{max-width:640px;margin-bottom:44px;}
+  .section-head h2{font-size:clamp(30px,4.4vw,46px);}
+  .section-head p{margin-top:14px;color:var(--ink-dim);font-size:17px;}
+  .btn{display:inline-flex;align-items:center;gap:8px;border:none;border-radius:999px;padding:14px 28px;font-weight:600;font-size:15px;text-decoration:none;transition:transform .2s,background .2s,box-shadow .2s;}
+  .btn-primary{background:var(--bordo);color:#fff;box-shadow:0 6px 18px rgba(122,31,43,.28);}
+  .btn-primary:hover{background:var(--bordo-dark);transform:translateY(-2px);}
+  .btn-ghost{background:transparent;color:var(--bordo);border:1.5px solid var(--bordo);}
+  .btn-ghost:hover{background:var(--bordo);color:#fff;}
+  .btn-light{background:#fff;color:var(--bordo);}
+  .btn-light:hover{transform:translateY(-2px);}
+  :focus-visible{outline:3px solid var(--navy);outline-offset:3px;border-radius:6px;}
+
+  /* HEADER */
+  header{position:sticky;top:0;z-index:50;background:rgba(248,243,224,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);}
+  .nav{display:flex;align-items:center;justify-content:space-between;gap:20px;max-width:1160px;margin:0 auto;padding:10px 24px;}
+  .brand{display:flex;align-items:center;gap:12px;text-decoration:none;}
+  .brand img{width:48px;height:48px;border-radius:50%;}
+  .brand-name{font-family:'Oswald',sans-serif;font-weight:700;font-size:23px;letter-spacing:.04em;color:var(--bordo-dark);}
+  .brand-name span{color:var(--rose);}
+  .nav ul{display:flex;gap:26px;list-style:none;font-size:15px;font-weight:500;}
+  .nav ul a{text-decoration:none;color:var(--ink-dim);padding:6px 0;border-bottom:2px solid transparent;transition:color .2s,border-color .2s;}
+  .nav ul a:hover,.nav ul a.active{color:var(--bordo);border-color:var(--rose);}
+  .nav-right{display:flex;align-items:center;gap:12px;}
+  .cart-btn{position:relative;background:#fff;border:1px solid var(--line);border-radius:50%;width:46px;height:46px;display:grid;place-items:center;color:var(--bordo);transition:transform .2s;}
+  .cart-btn:hover{transform:scale(1.07);}
+  .cart-count{position:absolute;top:-4px;right:-4px;min-width:20px;height:20px;border-radius:10px;background:var(--bordo);color:#fff;font-size:11px;font-weight:700;display:grid;place-items:center;padding:0 5px;transform:scale(0);transition:transform .25s;}
+  .cart-count.show{transform:scale(1);}
+  .menu-btn{display:none;background:none;border:none;color:var(--bordo);}
+  .nav-cta{padding:11px 22px;font-size:14px;}
+  @media(max-width:980px){
+    .nav ul{position:fixed;top:68px;left:0;right:0;flex-direction:column;gap:0;background:var(--cream);border-bottom:1px solid var(--line);padding:8px 24px 18px;transform:translateY(-130%);transition:transform .3s;z-index:-1;}
+    .nav ul.open{transform:none;}
+    .nav ul li{border-top:1px solid var(--line);}
+    .nav ul a{display:block;padding:14px 0;}
+    .menu-btn{display:block;}
+    .nav-cta{display:none;}
+  }
+
+  /* HERO */
+  .hero{position:relative;overflow:hidden;padding:70px 0 90px;background:
+      radial-gradient(900px 500px at 85% 20%,var(--blush),transparent 60%),var(--cream);}
+  .hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center;}
+  .hero h1{font-size:clamp(42px,6.6vw,78px);color:var(--bordo-dark);max-width:14ch;}
+  .hero h1 em{font-style:normal;color:var(--bordo);position:relative;white-space:nowrap;}
+  .hero h1 em::after{content:"";position:absolute;left:0;right:0;bottom:2px;height:10px;background:var(--rose-light);z-index:-1;border-radius:6px;}
+  .hero p.lead{margin-top:22px;max-width:48ch;font-size:19px;color:var(--ink-dim);}
+  .hero-ctas{margin-top:34px;display:flex;gap:14px;flex-wrap:wrap;}
+  .hero-badges{margin-top:38px;display:flex;gap:10px;flex-wrap:wrap;}
+  .chip{display:inline-flex;align-items:center;gap:8px;background:#fff;border:1px solid var(--line);border-radius:999px;padding:8px 16px;font-size:13.5px;font-weight:500;color:var(--ink);}
+  .chip svg{width:16px;height:16px;color:var(--bordo);}
+  .hero-logo{position:relative;justify-self:center;width:min(100%,460px);}
+  .hero-logo img{width:100%;filter:drop-shadow(0 24px 40px rgba(90,20,32,.25));animation:float 6s ease-in-out infinite;}
+  .hero-logo::before{content:"";position:absolute;inset:-6% -6% -6% -6%;border-radius:50%;border:1.5px dashed var(--rose);animation:spin 40s linear infinite;}
+  @keyframes float{50%{transform:translateY(-12px);}}
+  @keyframes spin{to{transform:rotate(360deg);}}
+  @media(max-width:880px){.hero-grid{grid-template-columns:1fr;}.hero-logo{order:-1;width:min(70%,320px);}}
+
+  /* MARQUEE */
+  .marquee{background:var(--bordo);color:var(--cream);overflow:hidden;padding:15px 0;white-space:nowrap;}
+  .marquee-track{display:inline-flex;gap:46px;animation:scroll 32s linear infinite;font-family:'Oswald',sans-serif;font-weight:500;letter-spacing:.14em;text-transform:uppercase;font-size:15px;}
+  .marquee-track span::after{content:"✦";margin-left:46px;color:var(--rose);}
+  @keyframes scroll{to{transform:translateX(-50%);}}
+  .marquee:hover .marquee-track{animation-play-state:paused;}
+
+  /* MISSION */
+  .mission{background:#fff;padding:80px 0;}
+  .mission p{font-family:'Oswald',sans-serif;font-weight:400;font-size:clamp(24px,3.4vw,38px);line-height:1.25;max-width:26ch;color:var(--ink);}
+  .mission p em{font-style:normal;color:var(--bordo);}
+  .mission-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:48px;align-items:center;}
+  .stats{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+  .stat{background:var(--blush);border-radius:var(--radius);padding:22px;}
+  .stat b{display:block;font-family:'Oswald',sans-serif;font-size:36px;color:var(--bordo);line-height:1;}
+  .stat span{font-size:13.5px;color:var(--ink-dim);}
+  @media(max-width:880px){.mission-grid{grid-template-columns:1fr;}}
+
+  /* PILLARS + COMPARE */
+  .pillar-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+  .pillar{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:30px;transition:transform .25s,box-shadow .25s,border-color .25s;}
+  .pillar:hover{transform:translateY(-6px);box-shadow:var(--shadow);border-color:var(--rose);}
+  .pillar .ico{width:54px;height:54px;border-radius:50%;background:var(--blush);display:grid;place-items:center;color:var(--bordo);margin-bottom:18px;}
+  .pillar .ico svg{width:26px;height:26px;}
+  .pillar h3{font-size:22px;margin-bottom:10px;}
+  .pillar p{color:var(--ink-dim);font-size:15.5px;}
+  @media(max-width:880px){.pillar-grid{grid-template-columns:1fr;}}
+  .compare{margin-top:56px;background:#fff;border:1px solid var(--line);border-radius:22px;padding:34px;}
+  .compare-head{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;margin-bottom:26px;}
+  .compare-head h3{font-size:26px;}
+  .toggle{display:inline-flex;background:var(--blush);border-radius:999px;padding:5px;}
+  .toggle button{border:none;background:transparent;border-radius:999px;padding:10px 20px;font-weight:600;font-size:14px;color:var(--ink-dim);transition:all .25s;}
+  .toggle button.on{background:var(--bordo);color:#fff;}
+  .compare-rows{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;}
+  .crow{border-radius:12px;padding:20px;border:1px solid var(--line);background:var(--cream);transition:all .35s;}
+  .crow h4{font-size:15px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-dim);margin-bottom:10px;}
+  .crow p{font-size:15px;min-height:70px;transition:opacity .25s;}
+  .crow .tag{display:inline-block;margin-top:10px;font-size:12px;font-weight:700;padding:4px 10px;border-radius:999px;background:#eadfd6;color:var(--ink-dim);transition:all .3s;}
+  .compare[data-mode="ff"] .crow{background:var(--blush);border-color:var(--rose);}
+  .compare[data-mode="ff"] .crow .tag{background:var(--bordo);color:#fff;}
+  @media(max-width:880px){.compare-rows{grid-template-columns:1fr 1fr;}}
+  @media(max-width:520px){.compare-rows{grid-template-columns:1fr;}.compare{padding:22px;}}
+
+  /* PRODUCTS */
+  .products{background:#fff;}
+  .filters{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:34px;}
+  .filter{border:1.5px solid var(--line);background:var(--cream);color:var(--ink);border-radius:999px;padding:10px 20px;font-weight:600;font-size:14px;transition:all .2s;}
+  .filter:hover{border-color:var(--bordo);color:var(--bordo);}
+  .filter.on{background:var(--bordo);border-color:var(--bordo);color:#fff;}
+  .product-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+  @media(max-width:980px){.product-grid{grid-template-columns:repeat(2,1fr);}}
+  @media(max-width:600px){.product-grid{grid-template-columns:1fr;}}
+  .card{background:var(--cream);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;display:flex;flex-direction:column;transition:transform .25s,box-shadow .25s,opacity .3s;}
+  .card:hover{transform:translateY(-6px);box-shadow:var(--shadow);}
+  .card.hide{display:none;}
+  .card-art{position:relative;aspect-ratio:4/3;background:linear-gradient(135deg,var(--blush),var(--rose-light));display:grid;place-items:center;overflow:hidden;cursor:pointer;}
+  .card-art::before{content:"";position:absolute;width:62%;aspect-ratio:1;border-radius:50%;background:rgba(255,255,255,.5);}
+  .card-art svg.pic{position:relative;width:46%;color:var(--bordo);transition:transform .35s;}
+  .card:hover .card-art svg.pic{transform:scale(1.1) rotate(-3deg);}
+  .card-art img.photo,.modal .art img.photo{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;background:#fff;padding:10px;z-index:1;}
+  .card-art .badge,.card-art .wish{z-index:2;}
+  .src{display:inline-block;margin-top:12px;font-size:13px;color:var(--ink-dim);}
+  .rec{margin-top:22px;background:rgba(255,255,255,.12);border-radius:14px;padding:16px;text-align:left;}
+  .rec h4{color:var(--rose-light);font-size:13px;letter-spacing:.14em;text-transform:uppercase;margin-bottom:10px;font-family:'Work Sans',sans-serif;font-weight:600;}
+  .rec button{display:flex;justify-content:space-between;align-items:center;gap:10px;width:100%;text-align:left;background:#fff;color:var(--bordo-dark);border:none;border-radius:10px;padding:10px 14px;margin-bottom:8px;font-size:14px;font-weight:600;transition:transform .2s;}
+  .rec button:hover{transform:translateX(4px);}
+  .rec button span{font-family:'Oswald',sans-serif;background:var(--bordo);color:#fff;border-radius:999px;padding:2px 12px;font-size:14px;}
+  .result .rec small{text-transform:none;letter-spacing:0;font-size:12.5px;line-height:1.45;}
+  .rec small{display:block;color:#f3dcd6;font-size:12.5px;margin-top:6px;letter-spacing:0;text-transform:none;}
+  .badge{position:absolute;top:14px;left:14px;background:var(--bordo);color:#fff;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:5px 11px;border-radius:999px;}
+  .wish{position:absolute;top:10px;right:10px;width:40px;height:40px;border-radius:50%;border:none;background:rgba(255,255,255,.9);color:var(--bordo);display:grid;place-items:center;transition:transform .2s;}
+  .wish:hover{transform:scale(1.12);}
+  .wish svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:2;transition:fill .2s;}
+  .wish.on svg{fill:var(--bordo);}
+  .card-body{padding:20px 22px 22px;display:flex;flex-direction:column;gap:8px;flex:1;}
+  .card-cat{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--rose);font-weight:700;}
+  .card h3{font-size:22px;}
+  .card p{font-size:14.5px;color:var(--ink-dim);flex:1;}
+  .card-foot{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:8px;}
+  .price{font-family:'Oswald',sans-serif;font-size:24px;color:var(--bordo);font-weight:600;}
+  .card-actions{display:flex;gap:8px;}
+  .mini{border-radius:999px;padding:9px 16px;font-size:13.5px;font-weight:600;border:1.5px solid var(--bordo);background:transparent;color:var(--bordo);transition:all .2s;}
+  .mini:hover{background:var(--bordo);color:#fff;}
+  .mini.fill{background:var(--bordo);color:#fff;}
+  .mini.fill:hover{background:var(--bordo-dark);}
+  .demo-note{margin-top:26px;font-size:13.5px;color:var(--ink-dim);}
+
+  /* FIT FINDER */
+  .fit{background:linear-gradient(180deg,var(--cream),var(--blush));}
+  .fit-box{display:grid;grid-template-columns:1.1fr .9fr;gap:30px;background:#fff;border-radius:24px;border:1px solid var(--line);padding:38px;box-shadow:var(--shadow);}
+  @media(max-width:900px){.fit-box{grid-template-columns:1fr;padding:24px;}}
+  .tabs{display:inline-flex;background:var(--blush);border-radius:999px;padding:5px;margin-bottom:26px;}
+  .tabs button{border:none;background:transparent;border-radius:999px;padding:10px 22px;font-weight:600;font-size:14px;color:var(--ink-dim);transition:all .25s;}
+  .tabs button.on{background:var(--bordo);color:#fff;}
+  .slider{margin-bottom:22px;}
+  .slider label{display:flex;justify-content:space-between;font-weight:600;font-size:15px;margin-bottom:8px;}
+  .slider label output{color:var(--bordo);font-family:'Oswald',sans-serif;font-size:19px;}
+  input[type=range]{width:100%;accent-color:var(--bordo);height:6px;}
+  .result{background:linear-gradient(145deg,var(--bordo),var(--bordo-dark));color:#fff;border-radius:20px;padding:34px;display:flex;flex-direction:column;justify-content:center;text-align:center;min-height:320px;}
+  .result .size{font-size:76px!important;}
+  .result small{letter-spacing:.2em;text-transform:uppercase;font-size:12px;color:var(--rose-light);}
+  .result .size{font-family:'Oswald',sans-serif;font-weight:700;font-size:96px;line-height:1;margin:10px 0;transition:transform .3s;}
+  .result .size.pop{transform:scale(1.12);}
+  .result p{color:#f3dcd6;font-size:15px;max-width:30ch;margin:0 auto;}
+  .result .bar{display:flex;gap:6px;justify-content:center;margin-top:22px;}
+  .result .bar i{width:34px;height:8px;border-radius:4px;background:rgba(255,255,255,.22);transition:background .3s;}
+  .result .bar i.on{background:var(--rose-light);}
+  .result .bar-lbl{display:flex;gap:6px;justify-content:center;margin-top:6px;font-size:11px;color:var(--rose-light);}
+  .result .bar-lbl span{width:34px;}
+
+  /* COMMUNITY */
+  .community-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;}
+  @media(max-width:880px){.community-grid{grid-template-columns:1fr;}}
+  .community h2{font-size:clamp(30px,4vw,44px);margin-bottom:16px;}
+  .community p.lead{color:var(--ink-dim);font-size:17px;max-width:46ch;margin-bottom:26px;}
+  .ig-link{display:inline-flex;align-items:center;gap:10px;font-weight:600;color:var(--bordo);text-decoration:none;border-bottom:2px solid var(--rose);padding-bottom:3px;}
+  .stories{background:#fff;border:1px solid var(--line);border-radius:22px;padding:34px;box-shadow:var(--shadow);position:relative;}
+  .stories .quote-mark{font-family:'Oswald',sans-serif;font-size:90px;line-height:.6;color:var(--rose);}
+  .story{display:none;animation:fade .4s;}
+  .story.on{display:block;}
+  @keyframes fade{from{opacity:0;transform:translateY(8px);}}
+  .story blockquote{font-size:20px;line-height:1.5;margin:6px 0 18px;color:var(--ink);}
+  .story cite{font-style:normal;font-weight:600;color:var(--bordo);}
+  .story cite span{display:block;font-weight:400;font-size:13.5px;color:var(--ink-dim);}
+  .story-nav{display:flex;align-items:center;justify-content:space-between;margin-top:26px;}
+  .dots{display:flex;gap:8px;}
+  .dots button{width:10px;height:10px;border-radius:50%;border:none;background:var(--line);padding:0;transition:all .25s;}
+  .dots button.on{background:var(--bordo);width:28px;border-radius:6px;}
+  .arrows{display:flex;gap:8px;}
+  .arrows button{width:42px;height:42px;border-radius:50%;border:1.5px solid var(--bordo);background:transparent;color:var(--bordo);font-size:18px;transition:all .2s;}
+  .arrows button:hover{background:var(--bordo);color:#fff;}
+
+  /* FAQ */
+  .faq{background:#fff;}
+  .faq-list{max-width:820px;}
+  .faq-item{border-bottom:1px solid var(--line);}
+  .faq-q{width:100%;text-align:left;background:none;border:none;padding:22px 0;display:flex;justify-content:space-between;align-items:center;gap:16px;font-family:'Oswald',sans-serif;font-size:21px;font-weight:500;color:var(--bordo-dark);}
+  .faq-q .plus{width:30px;height:30px;border-radius:50%;background:var(--blush);display:grid;place-items:center;flex:none;transition:transform .3s,background .3s;color:var(--bordo);font-size:20px;line-height:1;}
+  .faq-item.open .plus{transform:rotate(45deg);background:var(--bordo);color:#fff;}
+  .faq-a{max-height:0;overflow:hidden;transition:max-height .35s ease;}
+  .faq-a p{padding:0 0 22px;color:var(--ink-dim);max-width:62ch;}
+
+  /* NEWSLETTER */
+  .newsletter{background:var(--bordo);color:#fff;position:relative;overflow:hidden;}
+  .newsletter::before{content:"";position:absolute;right:-120px;top:-120px;width:420px;height:420px;border-radius:50%;border:1.5px dashed var(--rose);opacity:.5;}
+  .nl-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:44px;align-items:center;position:relative;}
+  @media(max-width:880px){.nl-grid{grid-template-columns:1fr;}}
+  .newsletter h2{color:#fff;font-size:clamp(30px,4vw,44px);margin-bottom:14px;}
+  .newsletter p{color:#f0d9d3;font-size:17px;max-width:44ch;}
+  .nl-form{display:flex;gap:10px;flex-wrap:wrap;}
+  .nl-form input{flex:1;min-width:210px;padding:15px 20px;border-radius:999px;border:2px solid transparent;font-family:inherit;font-size:15px;background:#fff;color:var(--ink);}
+  .nl-form input.err,.field input.err,.field textarea.err{border-color:#d33;}
+  .nl-note{font-size:13px;color:#e7c9c2;margin-top:12px;}
+  .err-msg{color:#ffd0d0;font-size:13.5px;margin-top:8px;min-height:20px;}
+  .promo{display:none;background:#fff;color:var(--ink);border-radius:18px;padding:24px;text-align:center;}
+  .promo.show{display:block;animation:fade .4s;}
+  .promo small{color:var(--ink-dim);}
+  .code{margin:10px 0;display:inline-flex;align-items:center;gap:12px;border:2px dashed var(--bordo);border-radius:12px;padding:10px 18px;font-family:'Oswald',sans-serif;font-size:28px;letter-spacing:.14em;color:var(--bordo);}
+
+  /* CONTACT */
+  .contact-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:44px;}
+  @media(max-width:880px){.contact-grid{grid-template-columns:1fr;}}
+  .contact-info h2{font-size:clamp(30px,4vw,44px);margin-bottom:16px;}
+  .contact-info p{color:var(--ink-dim);margin-bottom:24px;}
+  .info-line{display:flex;gap:14px;align-items:center;margin-bottom:16px;}
+  .info-line .ico{width:44px;height:44px;border-radius:50%;background:var(--blush);display:grid;place-items:center;color:var(--bordo);flex:none;}
+  .info-line .ico svg{width:20px;height:20px;}
+  .info-line b{display:block;font-size:13px;text-transform:uppercase;letter-spacing:.12em;color:var(--ink-dim);font-weight:600;}
+  form.contact{background:#fff;border:1px solid var(--line);border-radius:22px;padding:34px;box-shadow:var(--shadow);}
+  .row2{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+  @media(max-width:560px){.row2{grid-template-columns:1fr;}}
+  .field{margin-bottom:16px;}
+  .field label{display:block;font-size:14px;font-weight:600;margin-bottom:6px;}
+  .field input,.field textarea,.field select{width:100%;padding:13px 16px;border:1.5px solid var(--line);border-radius:12px;font-family:inherit;font-size:15px;background:var(--cream);color:var(--ink);transition:border-color .2s;}
+  .field input:focus,.field textarea:focus,.field select:focus{outline:none;border-color:var(--bordo);}
+  .field textarea{min-height:130px;resize:vertical;}
+  .field .hint{font-size:12.5px;color:#c0392b;min-height:16px;margin-top:4px;}
+  .sent{display:none;text-align:center;padding:30px 10px;}
+  .sent.show{display:block;animation:fade .4s;}
+  .sent .check{width:64px;height:64px;border-radius:50%;background:var(--bordo);color:#fff;display:grid;place-items:center;margin:0 auto 14px;font-size:30px;}
+
+  /* FOOTER */
+  footer{background:var(--ink);color:#d9cdca;padding:56px 0 32px;}
+  .foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:36px;}
+  @media(max-width:760px){.foot-grid{grid-template-columns:1fr;}}
+  footer .brand-name{color:#fff;}
+  footer p{font-size:14px;max-width:40ch;margin-top:14px;color:#b8aaa7;}
+  footer h4{color:#fff;font-size:15px;letter-spacing:.14em;text-transform:uppercase;margin-bottom:14px;}
+  footer ul{list-style:none;font-size:14.5px;}
+  footer li{margin-bottom:8px;}
+  footer a{text-decoration:none;color:#d9cdca;}
+  footer a:hover{color:var(--rose);}
+  .foot-bottom{margin-top:36px;padding-top:22px;border-top:1px solid #4a3f41;font-size:13px;color:#a19492;}
+
+  /* CART DRAWER, MODAL, TOAST */
+  .overlay{position:fixed;inset:0;background:rgba(42,34,36,.5);opacity:0;pointer-events:none;transition:opacity .3s;z-index:90;}
+  .overlay.show{opacity:1;pointer-events:auto;}
+  .drawer{position:fixed;top:0;right:0;bottom:0;width:min(420px,100%);background:#fff;z-index:100;transform:translateX(105%);transition:transform .35s;display:flex;flex-direction:column;box-shadow:-10px 0 40px rgba(0,0,0,.2);}
+  .drawer.open{transform:none;}
+  .drawer-head{display:flex;justify-content:space-between;align-items:center;padding:20px 24px;border-bottom:1px solid var(--line);}
+  .drawer-head h3{font-size:24px;}
+  .x{border:none;background:var(--blush);width:38px;height:38px;border-radius:50%;font-size:20px;color:var(--bordo);}
+  .drawer-body{flex:1;overflow:auto;padding:12px 24px;}
+  .empty{text-align:center;color:var(--ink-dim);padding:60px 10px;}
+  .ci{display:grid;grid-template-columns:62px 1fr auto;gap:14px;align-items:center;padding:14px 0;border-bottom:1px solid var(--line);}
+  .ci .thumb{width:62px;height:62px;border-radius:12px;background:linear-gradient(135deg,var(--blush),var(--rose-light));display:grid;place-items:center;color:var(--bordo);}
+  .ci .thumb svg{width:30px;}
+  .ci b{font-family:'Oswald',sans-serif;font-weight:500;font-size:17px;display:block;color:var(--bordo-dark);}
+  .ci small{color:var(--ink-dim);}
+  .qty{display:inline-flex;align-items:center;gap:8px;margin-top:6px;}
+  .qty button{width:26px;height:26px;border-radius:50%;border:1.5px solid var(--bordo);background:#fff;color:var(--bordo);font-weight:700;line-height:1;}
+  .ci .rm{border:none;background:none;color:var(--ink-dim);font-size:13px;text-decoration:underline;}
+  .drawer-foot{border-top:1px solid var(--line);padding:20px 24px;background:var(--cream);}
+  .promo-row{display:flex;gap:8px;margin-bottom:14px;}
+  .promo-row input{flex:1;padding:11px 14px;border:1.5px solid var(--line);border-radius:999px;font-family:inherit;text-transform:uppercase;}
+  .sum{display:flex;justify-content:space-between;margin:6px 0;font-size:15px;}
+  .sum.total{font-family:'Oswald',sans-serif;font-size:24px;color:var(--bordo);margin-top:12px;}
+  .modal{position:fixed;left:50%;top:50%;transform:translate(-50%,-46%);width:min(760px,calc(100% - 32px));max-height:calc(100% - 32px);overflow:auto;background:#fff;border-radius:24px;z-index:110;opacity:0;pointer-events:none;transition:all .3s;}
+  .modal.open{opacity:1;pointer-events:auto;transform:translate(-50%,-50%);}
+  .modal-grid{display:grid;grid-template-columns:.9fr 1.1fr;}
+  @media(max-width:640px){.modal-grid{grid-template-columns:1fr;}}
+  .modal .art{background:linear-gradient(135deg,var(--blush),var(--rose-light));display:grid;place-items:center;min-height:240px;color:var(--bordo);position:relative;}
+  .modal .art svg{width:48%;}
+  .modal .info{padding:32px;}
+  .modal .info h3{font-size:30px;margin:6px 0 10px;}
+  .modal ul{margin:14px 0 18px 18px;color:var(--ink-dim);font-size:15px;}
+  .modal .x{position:absolute;top:14px;right:14px;z-index:2;background:#fff;}
+  .sizes{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0 20px;}
+  .sizes button{min-width:46px;padding:9px 12px;border-radius:10px;border:1.5px solid var(--line);background:#fff;font-weight:600;transition:all .2s;}
+  .sizes button.on{background:var(--bordo);border-color:var(--bordo);color:#fff;}
+  .toast{position:fixed;left:50%;bottom:26px;transform:translate(-50%,120px);background:var(--ink);color:#fff;padding:14px 24px;border-radius:999px;font-size:14.5px;z-index:120;transition:transform .35s;box-shadow:0 10px 30px rgba(0,0,0,.3);max-width:calc(100% - 32px);text-align:center;}
+  .toast.show{transform:translate(-50%,0);}
+  .to-top{position:fixed;right:20px;bottom:24px;width:48px;height:48px;border-radius:50%;border:none;background:var(--bordo);color:#fff;font-size:20px;box-shadow:var(--shadow);opacity:0;transform:translateY(20px);pointer-events:none;transition:all .3s;z-index:40;}
+  .to-top.show{opacity:1;transform:none;pointer-events:auto;}
+
+  .reveal{opacity:0;transform:translateY(26px);transition:opacity .7s,transform .7s;}
+  .reveal.in{opacity:1;transform:none;}
+  @media (prefers-reduced-motion: reduce){
+    *{animation:none!important;transition:none!important;}
+    .reveal{opacity:1;transform:none;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav">
+    <a class="brand" href="#top" aria-label="FerroFemme — početak">
+      <img src="logo.png" alt="FerroFemme logo">
+      <span class="brand-name">Ferro<span>Femme</span></span>
+    </a>
+    <ul id="menu">
+      <li><a href="#proizvodi">Proizvodi</a></li>
+      <li><a href="#velicina">Veličine</a></li>
+      <li><a href="#zasto">Zašto FerroFemme</a></li>
+      <li><a href="#zajednica">Zajednica</a></li>
+      <li><a href="#kontakt">Kontakt</a></li>
+    </ul>
+    <div class="nav-right">
+      <button class="cart-btn" id="openCart" aria-label="Otvori košaricu">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 7h12l-1 12H7L6 7Z"/><path d="M9 7a3 3 0 0 1 6 0"/></svg>
+        <span class="cart-count" id="cartCount">0</span>
+      </button>
+      <a class="btn btn-primary nav-cta" href="#pridruzi-se">Pridruži se</a>
+      <button class="menu-btn" id="menuBtn" aria-label="Izbornik" aria-expanded="false">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div class="reveal">
+      <span class="eyebrow">Motoristička oprema dizajnirana za ženska tijela</span>
+      <h1>Krojena za vas, <em>a ne</em> prilagođena vama.</h1>
+      <p class="lead">Kacige, jakne, rukavice i čizme razvijene od prve skice prema ženskoj građi — uz punu CE sigurnosnu certifikaciju i identitet koji ne pristaje na kompromis.</p>
+      <div class="hero-ctas">
+        <a class="btn btn-primary" href="#proizvodi">Pogledaj ponudu</a>
+        <a class="btn btn-ghost" href="#velicina">Pronađi svoju veličinu</a>
+      </div>
+      <div class="hero-badges">
+        <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4 6v6c0 5 3.5 8 8 9 4.500-1 8-4 8-9V6l-8-3Z"/><path d="m9 12 2 2 4-4"/></svg>CE certificirano</span>
+        <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>Besplatna zamjena veličine</span>
+        <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h13l-3-3m3 3-3 3"/><path d="M18 5v14"/></svg>Dostava u cijeloj Hrvatskoj</span>
+      </div>
+    </div>
+    <div class="hero-logo reveal"><img src="logo.png" alt="FerroFemme — Krojena za vas, a ne prilagođena vama"></div>
+  </div>
+</section>
+
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track">
+    <span>Kroj za žensku građu</span><span>Puna CE certifikacija</span><span>Identitet bez kliševa</span><span>Sigurnost bez kompromisa</span><span>Za žene koje voze ozbiljno</span>
+    <span>Kroj za žensku građu</span><span>Puna CE certifikacija</span><span>Identitet bez kliševa</span><span>Sigurnost bez kompromisa</span><span>Za žene koje voze ozbiljno</span>
+  </div>
+</div>
+
+<section class="mission">
+  <div class="wrap mission-grid">
+    <p class="reveal">Većina proizvođača ženama nudi tek umanjene muške modele. <em>FerroFemme</em> kreće od ženske mjere — ne od kompromisa.</p>
+    <div class="stats reveal">
+      <div class="stat"><b data-count="100" data-suffix="%">0</b><span>proizvoda s CE certifikatom</span></div>
+      <div class="stat"><b data-count="5">0</b><span>kategorija opreme</span></div>
+      <div class="stat"><b data-count="6">0</b><span>konfekcijskih veličina, XS–XXL</span></div>
+      <div class="stat"><b data-count="14" data-suffix=" d">0</b><span>za zamjenu veličine</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="zasto">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Zašto FerroFemme</span>
+      <h2>Tri stvari na kojima ne popuštamo</h2>
+    </div>
+    <div class="pillar-grid">
+      <div class="pillar reveal">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4 6v6c0 5 3.5 8 8 9 4.5-1 8-4 8-9V6l-8-3Z"/><path d="m9 12 2 2 4-4"/></svg></div>
+        <h3>Sigurnosna certifikacija</h3>
+        <p>Puna CE certifikacija na svakom komadu opreme — sigurnost nikad nije opcija koju skraćujemo zbog kroja.</p>
+      </div>
+      <div class="pillar reveal">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20 20 4"/><path d="M4 14v6h6"/><path d="M14 4h6v6"/></svg></div>
+        <h3>Kroj za žensku građu</h3>
+        <p>Biramo samo modele razvijene od temeljnih ženskih mjera, ne prekrojene iz muške linije — pristaju onako kako bi trebali.</p>
+      </div>
+      <div class="pillar reveal">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l2.400 5 5.600.8-4 3.900 1 5.600L12 15.700 7 18.300l1-5.600-4-3.900L9.600 8 12 3Z"/></svg></div>
+        <h3>Identitet bez kliševa</h3>
+        <p>Ni jeftina unisex ponuda, ni infantilizirana „roza” oprema — sofisticiran dizajn za žene koje voze ozbiljno.</p>
+      </div>
+    </div>
+
+    <div class="compare reveal" id="compare" data-mode="ff">
+      <div class="compare-head">
+        <h3>Gdje je razlika u kroju?</h3>
+        <div class="toggle" role="group" aria-label="Usporedba kroja">
+          <button type="button" data-mode="male">Prekrojena muška oprema</button>
+          <button type="button" data-mode="ff" class="on">FerroFemme</button>
+        </div>
+      </div>
+      <div class="compare-rows">
+        <div class="crow"><h4>Ramena</h4><p data-male="Preširoka ramena, rukavi klize preko dlana." data-ff="Uža linija ramena, rukavi točno do zapešća."></p><span class="tag"></span></div>
+        <div class="crow"><h4>Struk</h4><p data-male="Ravan kroj bez struka, oprema „visi” na tijelu." data-ff="Profiliran struk za sigurno, stabilno prianjanje."></p><span class="tag"></span></div>
+        <div class="crow"><h4>Kukovi i bedra</h4><p data-male="Uska u kukovima, steže pri sjedenju na motoru." data-ff="Više prostora u kukovima, udobno sjedenje na dugim vožnjama."></p><span class="tag"></span></div>
+        <div class="crow"><h4>Kaciga</h4><p data-male="Okrugla unutarnja podstava, pritisak na čeljust i vrat." data-ff="Ljuska i podstava oblikovane za žensku glavu i vratnu liniju."></p><span class="tag"></span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="products" id="proizvodi">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Ponuda</span>
+      <h2>Pet kategorija opreme, svaka razvijena za žensku građu</h2>
+      <p>Odabrani modeli stvarnih ženskih linija renomiranih proizvođača. Filtriraj po kategoriji, otvori detalje, spremi favorite i dodaj u košaricu.</p>
+    </div>
+    <div class="filters reveal" id="filters" role="group" aria-label="Filtriraj proizvode"></div>
+    <div class="product-grid" id="grid"></div>
+    <p class="demo-note">Prikazani su stvarni modeli (Alpinestars, Schuberth); opisi se temelje na podacima proizvođača i trgovaca, a cijene su okvirne (preračunate iz cijena proizvođača). Nazivi i znakovi pripadaju njihovim vlasnicima. FerroFemme je izmišljeno poduzeće izrađeno za potrebe završnog rada i nije povezano s proizvođačima.</p>
+  </div>
+</section>
+
+<section class="fit" id="velicina">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Vodič za veličine</span>
+      <h2>Pronađi svoju veličinu u deset sekundi</h2>
+      <p>Pomakni klizače prema svojim mjerama i odmah vidi preporučenu veličinu.</p>
+    </div>
+    <div class="fit-box reveal">
+      <div>
+        <div class="tabs" role="tablist">
+          <button type="button" class="on" data-tab="odjeca">Jakne i rukavice</button>
+          <button type="button" data-tab="kaciga">Kaciga</button>
+          <button type="button" data-tab="cizme">Čizme</button>
+        </div>
+        <div id="tab-odjeca">
+          <div class="slider"><label for="sBust">Opseg grudi <output id="oBust">90 cm</output></label><input type="range" id="sBust" min="76" max="116" value="90"></div>
+          <div class="slider"><label for="sWaist">Opseg struka <output id="oWaist">72 cm</output></label><input type="range" id="sWaist" min="58" max="100" value="72"></div>
+          <div class="slider"><label for="sHip">Opseg bokova <output id="oHip">98 cm</output></label><input type="range" id="sHip" min="82" max="122" value="98"></div>
+        </div>
+        <div id="tab-kaciga" hidden>
+          <div class="slider"><label for="sHead">Opseg glave <output id="oHead">56 cm</output></label><input type="range" id="sHead" min="51" max="63" value="56"></div>
+          <p style="color:var(--ink-dim);font-size:14.5px;">Izmjeri opseg glave metrom tik iznad obrva i ušiju, na najširem dijelu.</p>
+        </div>
+        <div id="tab-cizme" hidden>
+          <div class="slider"><label for="sFoot">Veličina stopala (EU) <output id="oFoot">39</output></label><input type="range" id="sFoot" min="35" max="43" value="39"></div>
+          <p style="color:var(--ink-dim);font-size:14.5px;">Izmjeri dužinu stopala navečer i dodaj oko 0,5 cm za čarapu.</p>
+        </div>
+      </div>
+      <div class="result" aria-live="polite">
+        <small id="rLabel">Preporučena veličina</small>
+        <div class="size" id="rSize">M</div>
+        <p id="rNote"></p>
+        <div class="bar" id="rBar"></div>
+        <div class="bar-lbl" id="rBarLbl"></div>
+        <div class="rec" id="rec"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="community" id="zajednica">
+  <div class="wrap community-grid">
+    <div class="reveal">
+      <span class="eyebrow">Zajednica</span>
+      <h2>Gradimo zajednicu, ne samo katalog</h2>
+      <p class="lead">Priče vozačica, pitanja o odabiru opreme i pogled iza kulisa — pratite nas tamo gdje smo najaktivnije.</p>
+      <a class="ig-link" href="https://www.instagram.com/ferro_femme/" target="_blank" rel="noopener" id="igLink">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.500" cy="6.500" r="1" fill="currentColor"/></svg>
+        @ferro_femme na Instagramu →
+      </a>
+    </div>
+    <div class="stories reveal" id="stories">
+      <div class="quote-mark">“</div>
+      <div class="story on"><blockquote>Prvi put imam jaknu u kojoj rukavi nisu predugi, a ramena ne vise. Konačno se osjećam sigurno i na motoru i na kavi poslije vožnje.</blockquote><cite>Ana, 29<span>vozačica naked motocikla, Zagreb</span></cite></div>
+      <div class="story"><blockquote>Kao početnici najviše mi je značio savjet o veličini kacige. Pristaje savršeno i ne stišće vrat.</blockquote><cite>Marta, 22<span>studentica, nedavno položila ispit</span></cite></div>
+      <div class="story"><blockquote>Ne želim „žensku” opremu u roza boji, želim dobru opremu koja mi pristaje. To je ono što ovdje dobivam.</blockquote><cite>Iva, 34<span>turistička vozačica, Rijeka</span></cite></div>
+      <div class="story-nav">
+        <div class="dots" id="dots"></div>
+        <div class="arrows"><button type="button" id="prevStory" aria-label="Prethodna priča">←</button><button type="button" id="nextStory" aria-label="Sljedeća priča">→</button></div>
+      </div>
+      <p style="margin-top:16px;font-size:12.5px;color:var(--ink-dim);">Primjeri priča izmišljeni su za potrebe završnog rada.</p>
+    </div>
+  </div>
+</section>
+
+<section class="faq" id="faq">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Česta pitanja</span>
+      <h2>Prije nego što naručite</h2>
+    </div>
+    <div class="faq-list reveal" id="faqList">
+      <div class="faq-item"><button class="faq-q" type="button" aria-expanded="false">Što znači CE certifikacija?<span class="plus">+</span></button><div class="faq-a"><p>CE oznaka potvrđuje da oprema zadovoljava europske sigurnosne norme za osobnu zaštitnu opremu. Svaki FerroFemme proizvod ima punu certifikaciju, bez iznimki.</p></div></div>
+      <div class="faq-item"><button class="faq-q" type="button" aria-expanded="false">Što ako mi veličina ne odgovara?<span class="plus">+</span></button><div class="faq-a"><p>Zamjenu veličine osiguravamo besplatno u roku od 14 dana, uz uvjet da oprema nije korištena. Prije narudžbe možete isprobati i vodič za veličine na ovoj stranici.</p></div></div>
+      <div class="faq-item"><button class="faq-q" type="button" aria-expanded="false">Kako izgleda dostava?<span class="plus">+</span></button><div class="faq-a"><p>Dostavljamo na kućnu adresu diljem Hrvatske, a poslovanje je isključivo online. Rok isporuke je obično 2–4 radna dana.</p></div></div>
+      <div class="faq-item"><button class="faq-q" type="button" aria-expanded="false">Zašto je kroj za žene toliko važan?<span class="plus">+</span></button><div class="faq-a"><p>Oprema koja nije prilagođena građi može kliziti, stezati ili se pomicati pri vožnji, a zaštitni umetci tada ne pokrivaju prava mjesta. Pravilan kroj izravno povećava sigurnost.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="newsletter" id="pridruzi-se">
+  <div class="wrap nl-grid">
+    <div>
+      <span class="eyebrow" style="color:var(--rose-light)">Pridruži se</span>
+      <h2>Budite prve koje saznaju</h2>
+      <p>Prijavite se i ostvarite popust na prvu kupnju, uz edukativne savjete o odabiru opreme.</p>
+    </div>
+    <div>
+      <form class="nl-form" id="nlForm" novalidate>
+        <input type="email" id="nlEmail" placeholder="vas.email@primjer.com" aria-label="E-mail adresa" autocomplete="email">
+        <button class="btn btn-light" type="submit">Prijavi se</button>
+      </form>
+      <div class="err-msg" id="nlErr"></div>
+      <div class="promo" id="promo">
+        <small>Hvala na prijavi! Vaš kod za 10 % popusta:</small><br>
+        <div class="code"><span id="codeTxt">FERRO10</span></div><br>
+        <button class="mini fill" type="button" id="copyCode">Kopiraj kod</button>
+        <p style="color:var(--ink-dim);font-size:13px;margin-top:10px;">Unesite ga u košarici.</p>
+      </div>
+      <div class="nl-note" id="nlNote">Bez spama. Odjava u svakom trenutku.</div>
+    </div>
+  </div>
+</section>
+
+<section id="kontakt">
+  <div class="wrap contact-grid">
+    <div class="contact-info reveal">
+      <span class="eyebrow">Kontakt</span>
+      <h2>Pitajte nas bilo što</h2>
+      <p>Trebate savjet oko veličine, kroja ili odabira opreme? Javite nam se — odgovaramo unutar jednog radnog dana.</p>
+      <div class="info-line"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></div><div><b>E-mail</b><a href="mailto:femmeferro@gmail.com" style="text-decoration:none;color:var(--bordo);font-weight:600;">femmeferro@gmail.com</a></div></div>
+      <div class="info-line"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div><div><b>Radno vrijeme podrške</b>pon – pet, 9:00 – 17:00</div></div>
+      <div class="info-line"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-6.100 7-11a7 7 0 1 0-14 0c0 4.900 7 11 7 11Z"/><circle cx="12" cy="10" r="2.500"/></svg></div><div><b>Poslovanje</b>Isključivo online — dostava u cijeloj Hrvatskoj</div></div>
+    </div>
+    <div class="reveal">
+      <form class="contact" id="contactForm" novalidate>
+        <div class="row2">
+          <div class="field"><label for="cName">Ime</label><input id="cName" type="text" autocomplete="name"><div class="hint"></div></div>
+          <div class="field"><label for="cMail">E-mail</label><input id="cMail" type="email" autocomplete="email"><div class="hint"></div></div>
+        </div>
+        <div class="field"><label for="cTopic">Tema</label>
+          <select id="cTopic"><option>Savjet oko veličine</option><option>Informacije o proizvodu</option><option>Dostava i povrat</option><option>Ostalo</option></select><div class="hint"></div></div>
+        <div class="field"><label for="cMsg">Poruka</label><textarea id="cMsg"></textarea><div class="hint"></div></div>
+        <button class="btn btn-primary" type="submit">Pošalji poruku</button>
+      </form>
+      <div class="sent" id="sent"><div class="check">✓</div><h3>Hvala, poruka je poslana!</h3><p style="color:var(--ink-dim);margin-top:8px;">Ovo je demonstracijski obrazac, poruka se ne šalje stvarno.</p><button class="mini" type="button" id="again" style="margin-top:16px;">Nova poruka</button></div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a class="brand" href="#top"><img src="logo.png" alt="" width="48" height="48"><span class="brand-name">Ferro<span>Femme</span></span></a>
+        <p>Krojena za vas, a ne prilagođena vama. Motoristička oprema za žene koje voze ozbiljno.</p>
+      </div>
+      <div><h4>Stranica</h4><ul><li><a href="#proizvodi">Proizvodi</a></li><li><a href="#velicina">Vodič za veličine</a></li><li><a href="#zasto">Zašto FerroFemme</a></li><li><a href="#zajednica">Zajednica</a></li></ul></div>
+      <div><h4>Pomoć</h4><ul><li><a href="#faq">Česta pitanja</a></li><li><a href="#pridruzi-se">Newsletter</a></li><li><a href="#kontakt">Kontakt</a></li></ul></div>
+    </div>
+    <div class="foot-bottom">© 2026 FerroFemme. FerroFemme je izmišljeno poduzeće, izrađeno isključivo za potrebe završnog rada (Srednja škola Dugo Selo).</div>
+  </div>
+</footer>
+
+<div class="overlay" id="overlay"></div>
+
+<aside class="drawer" id="drawer" aria-label="Košarica" aria-hidden="true">
+  <div class="drawer-head"><h3>Košarica</h3><button class="x" type="button" id="closeCart" aria-label="Zatvori">×</button></div>
+  <div class="drawer-body" id="cartBody"></div>
+  <div class="drawer-foot">
+    <div class="promo-row"><input id="promoIn" placeholder="Promo kod" aria-label="Promo kod"><button class="mini" type="button" id="applyPromo">Primijeni</button></div>
+    <div class="sum"><span>Međuzbroj</span><span id="subT">0 €</span></div>
+    <div class="sum" id="discRow" style="display:none;color:var(--bordo)"><span>Popust 10 %</span><span id="discT">0 €</span></div>
+    <div class="sum total"><span>Ukupno</span><span id="totT">0 €</span></div>
+    <button class="btn btn-primary" type="button" id="checkout" style="width:100%;justify-content:center;margin-top:14px;">Dovrši narudžbu</button>
+  </div>
+</aside>
+
+<div class="modal" id="modal" role="dialog" aria-modal="true" aria-hidden="true">
+  <div class="modal-grid">
+    <div class="art" id="mArt"><button class="x" type="button" id="closeModal" aria-label="Zatvori">×</button></div>
+    <div class="info">
+      <span class="card-cat" id="mCat"></span>
+      <h3 id="mName"></h3>
+      <p id="mDesc" style="color:var(--ink-dim)"></p>
+      <ul id="mFeat"></ul>
+      <strong style="font-size:14px;">Veličina</strong>
+      <div class="sizes" id="mSizes"></div>
+      <a class="src" id="mSrc" href="#" target="_blank" rel="noopener"></a>
+      <div class="card-foot"><span class="price" id="mPrice"></span><button class="btn btn-primary" type="button" id="mAdd">Dodaj u košaricu</button></div>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<button class="to-top" id="toTop" aria-label="Natrag na vrh">↑</button>
+
+<script>
+(function(){
+  var $=function(s,r){return (r||document).querySelector(s);};
+  var $$=function(s,r){return Array.prototype.slice.call((r||document).querySelectorAll(s));};
+  var fmt=function(n){return (Math.round(n*100)/100).toFixed(n%1?2:0).replace('.',',')+' €';};
+
+  /* ---------- toast ---------- */
+  var toastEl=$('#toast'),toastT;
+  function toast(m){toastEl.textContent=m;toastEl.classList.add('show');clearTimeout(toastT);toastT=setTimeout(function(){toastEl.classList.remove('show');},2600);}
+
+  /* ---------- icons ---------- */
+  var ICON={
+    helmet:'<svg class="pic" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M10 38C10 20 22 8 38 8c10 0 18 6 20 16l1 8c0 4-3 7-7 7H44l-4 9H22c-7 0-12-6-12-10Z"/><path d="M30 24c10-3 22-1 28 5"/><path d="M34 27c6-1 12 0 18 3"/><path d="M46 40h6M44 45h5"/></svg>',
+    jacket:'<svg class="pic" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M22 8 8 16l4 16 8-2v26h24V30l8 2 4-16-14-8"/><path d="M22 8c2 6 6 9 10 9s8-3 10-9"/><path d="M32 17v39"/></svg>',
+    glove:'<svg class="pic" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 34V16a4 4 0 0 1 8 0v12M28 26V10a4 4 0 0 1 8 0v16M36 26V14a4 4 0 0 1 8 0v22c0 10-6 18-16 18h-4c-8 0-14-6-14-14v-8l6 2"/><path d="M22 50h20"/></svg>',
+    boot:'<svg class="pic" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M22 6h18v24l14 8c3 2 4 5 4 8v4H14V30l8-4Z"/><path d="M14 50h44"/><path d="M22 18h18"/></svg>',
+    shield:'<svg class="pic" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M32 6 12 13v16c0 14 8 22 20 27 12-5 20-13 20-27V13L32 6Z"/><path d="M32 18v30M22 28h20M24 38h16"/></svg>',
+    rain:'<svg class="pic" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M18 36a10 10 0 0 1 2-19 14 14 0 0 1 26 3 9 9 0 0 1-2 16H18Z"/><path d="M22 44l-3 8M32 44l-3 8M42 44l-3 8"/></svg>'
+  };
+  var CATS=['Sve','Kacige','Jakne','Rukavice','Čizme','Zaštita i dodaci'];
+  var PRODUCTS=[
+    {id:1,cat:'Kacige',icon:'helmet',brand:'Schuberth',name:'C4 Pro Women',img:'slike/schuberth-c4-pro-women.jpg',price:629,badge:'Premium',sizes:['XS','S','M','L'],
+     desc:'Modularna (flip-up) kaciga izrađena posebno za žensku glavu: obrazni jastučići deblji su 5 mm, a podstava je u tamnoj lavandi.',
+     feat:['Za opsege glave od 53 do 59 cm (XS–L)','Ugrađeni spuštajući sunčani štitnik','Pinlock umetak već ugrađen u vizir','AROS sustav protiv skidanja kacige pri udesu','Pripremljena za Bluetooth komunikaciju'],
+     tip:'Sjedi relativno visoko na glavi, pa je prije kupnje važno isprobati.',
+     src:'https://ridermagazine.com/schuberth-c4-pro-women-helmet-gear-review/',srcLbl:'Recenzija: Rider Magazine'},
+    {id:2,cat:'Jakne',icon:'jacket',brand:'Alpinestars',name:'Stella Andes v3 Drystar',img:'slike/andes-v3.jpg',price:259,badge:'Za putovanja',sizes:['S','M','L','XL','XXL'],
+     desc:'Tekstilna jakna za avanturističku vožnju i svakodnevne vožnje, anatomski krojena za žene i potpuno vodootporna.',
+     feat:['100 % vodootporna (Drystar, stupac vode 5000 mm)','Prozračnost 5000 g/m²','Pripremljena za Tech-Air zračni jastuk','Zračnici s patentnim zatvaračem na prsima','Veliki džepovi i podesivi remeni u struku','Veličine S–2XL; moguć umetak za zaštitu leđa'],
+     src:'https://www.alpinestars.com/products/stella-andes-v3-drystar-jacket',srcLbl:'Proizvođač: Alpinestars'},
+    {id:3,cat:'Jakne',icon:'jacket',brand:'Alpinestars',name:'Stella T-GP Plus R v3 Air',img:'slike/t-gp-plus-r-v3-air.jpg',price:255,badge:'Sportska',sizes:['XS','S','M','L','XL','XXL'],
+     desc:'Sportska ljetna jakna s anatomskim ženskim krojem i velikim mrežastim panelima za prozračnost.',
+     feat:['Anatomski profiliran kroj za žene','Otporna poliesterska tkanina','Zaštitni sustav Nucleon Flex Plus','Mrežasti paneli na prsima, leđima i rukavima','Zatvarač oko cijelog struka za spajanje s hlačama','Veličine XS–2XL'],
+     src:'https://www.alpinestars.com/products/stella-t-gp-plus-r-v3-air-jacket',srcLbl:'Proizvođač: Alpinestars'},
+    {id:4,cat:'Rukavice',icon:'glove',brand:'Alpinestars',name:'Stella SP-8 v3',img:'slike/sp-8-v3.jpg',price:119,badge:'Ljetne',sizes:['XS','S','M','L','XL'],
+     desc:'Sportske kožne rukavice izrađene za žensku šaku, s perforacijama za ljetne vožnje.',
+     feat:['Kozja koža uz sintetičku kožu','Tvrdi štitnik zgloba, CE EN 13594:2015, razina 1 KP','Patentirani most za treći i četvrti prst protiv pucanja šavova','Perforirana manšeta i bočne strane prstiju','Prsti kompatibilni sa zaslonom na dodir','Veličine XS–XL'],
+     src:'https://ca.alpinestars.com/products/stella-sp-8-v3-gloves',srcLbl:'Proizvođač: Alpinestars'},
+    {id:5,cat:'Rukavice',icon:'glove',brand:'Alpinestars',name:'Stella Tourer W-7 v2 Drystar',img:'slike/tourer-w7-v2.jpg',price:129,badge:'Zimske',sizes:['XS','S','M','L','XL'],
+     desc:'Vodootporne i podstavljene touring rukavice dugačke manšete, za hladniju i kišnu vožnju.',
+     feat:['Drystar vodootporna i prozračna membrana','Thinsulate podstava: 150 g gore, 100 g na dlanu','Viskoelastični štitnik zgloba, CE razina 1 KP','Duga touring manšeta za dodatnu pokrivenost','Reflektirajući print, prsti kompatibilni s dodirom','Veličine XS–XL'],
+     tip:'Alpinestars rukavice često padaju manje nego što se očekuje — preporučuje se uzeti veličinu veću.',
+     src:'https://tripleclampmoto.ca/products/alpinestars-stella-tourer-w-7-v2-drystar-r-gloves',srcLbl:'Izvor: trgovac'},
+    {id:6,cat:'Čizme',icon:'boot',brand:'Alpinestars',name:'Stella SMX-6 v2',img:'slike/smx-6-v2.jpg',price:349,badge:'Sportske',sizes:['36','37','38','39','40','41','42'],
+     desc:'Sportske čizme izrađene za ženske vozačice, s novim krojem gornjišta i zaštitom prstiju i gležnja.',
+     feat:['CE certificirane','Zamjenjivi dvokomponentni TPU slider','Zaštita prstiju ispod gornjišta','Uložak za podršku svoda stopala','Bočni ulaz: elastični patent i široki čičak','Zone savijanja na nartu i ahilovoj tetivi','Veličine EU 36–42'],
+     src:'https://admsport.com/en/products/stella-smx-6-v2-women-boots',srcLbl:'Izvor: trgovac'},
+    {id:7,cat:'Zaštita i dodaci',icon:'shield',brand:'Alpinestars',name:'Nucleon Plasma — umetak za leđa',img:'slike/nucleon-plasma.jpg',price:69,badge:'Sigurnost',sizes:['S','M','L'],
+     desc:'Umetak za zaštitu leđa koji se ugrađuje u odabrane Alpinestars jakne, uključujući Stella Andes v3.',
+     feat:['CE razina 2 (EN 1621-2:2014)','Biorazgradiva viskoelastična PLASMA smjesa (najmanje 25 % biološkog podrijetla)','Brojne perforacije i kanali za prozračnost','Prilagodljiv: steže se i širi s pokretom','Veličine S, M, L (prema duljini leđa)'],
+     src:'https://www.alpinestars.com/products/nucleon-plasma-back-protector-insert-1',srcLbl:'Proizvođač: Alpinestars'}
+  ];
+  var PBYID=function(id){return PRODUCTS.filter(function(x){return x.id===id;})[0];};
+
+  /* ---------- state (cart, wishlist) ---------- */
+  var cart=[],wish={},promoOn=false;
+  try{var sc=JSON.parse(localStorage.getItem('ff_cart')||'[]');if(Array.isArray(sc))cart=sc;var sw=JSON.parse(localStorage.getItem('ff_wish')||'{}');if(sw&&typeof sw==='object')wish=sw;}catch(e){}
+  function save(){try{localStorage.setItem('ff_cart',JSON.stringify(cart));localStorage.setItem('ff_wish',JSON.stringify(wish));}catch(e){}}
+
+  /* ---------- products render ---------- */
+  var grid=$('#grid'),filtersEl=$('#filters'),current='Sve';
+  CATS.forEach(function(c){var b=document.createElement('button');b.type='button';b.className='filter'+(c==='Sve'?' on':'');b.textContent=c;b.addEventListener('click',function(){current=c;$$('.filter').forEach(function(x){x.classList.toggle('on',x===b);});applyFilter();});filtersEl.appendChild(b);});
+  var heart='<svg viewBox="0 0 24 24"><path d="M12 21s-7.500-4.700-9.500-9.400C1.300 8.700 3 5 6.500 5c2 0 3.500 1.100 5.500 3.200C14 6.100 15.500 5 17.500 5 21 5 22.700 8.700 21.500 11.600 19.500 16.300 12 21 12 21Z"/></svg>';
+  PRODUCTS.forEach(function(p){
+    var el=document.createElement('article');el.className='card reveal';el.dataset.cat=p.cat;
+    el.innerHTML='<div class="card-art" data-open="'+p.id+'">'+(p.badge?'<span class="badge">'+p.badge+'</span>':'')+ICON[p.icon]+'<button class="wish'+(wish[p.id]?' on':'')+'" type="button" aria-label="Dodaj u favorite" data-wish="'+p.id+'">'+heart+'</button></div>'+
+      '<div class="card-body"><span class="card-cat">'+p.cat+' · '+p.brand+'</span><h3>'+p.name+'</h3><p>'+p.desc+'</p><div class="card-foot"><span class="price"><small style="font-size:13px;font-family:\'Work Sans\';color:var(--ink-dim);font-weight:400;">oko </small>'+fmt(p.price)+'</span><div class="card-actions"><button class="mini" type="button" data-open="'+p.id+'">Detalji</button><button class="mini fill" type="button" data-add="'+p.id+'">Dodaj</button></div></div></div>';
+    grid.appendChild(el);
+  });
+  function applyFilter(){$$('.card',grid).forEach(function(c){c.classList.toggle('hide',current!=='Sve'&&c.dataset.cat!==current);c.classList.add('in');});}
+  grid.addEventListener('click',function(e){
+    var w=e.target.closest('[data-wish]'),a=e.target.closest('[data-add]'),o=e.target.closest('[data-open]');
+    if(w){e.stopPropagation();var id=w.dataset.wish;wish[id]=!wish[id];w.classList.toggle('on',wish[id]);save();toast(wish[id]?'Spremljeno u favorite ♥':'Uklonjeno iz favorita');return;}
+    if(a){var p=PBYID(+a.dataset.add);addToCart(p,p.sizes[Math.floor(p.sizes.length/2)]);return;}
+    if(o){openModal(+o.dataset.open);}
+  });
+
+  /* ---------- cart ---------- */
+  function addToCart(p,size){
+    var f=cart.filter(function(i){return i.id===p.id&&i.size===size;})[0];
+    if(f)f.qty++;else cart.push({id:p.id,size:size,qty:1});
+    save();renderCart();toast(p.name+' ('+size+') dodano u košaricu');
+    var b=$('#cartCount');b.classList.remove('show');void b.offsetWidth;b.classList.add('show');
+  }
+  function renderCart(){
+    var body=$('#cartBody'),count=0,sub=0;
+    if(!cart.length){body.innerHTML='<div class="empty">Košarica je prazna.<br>Pogledajte našu ponudu.</div>';}
+    else{
+      body.innerHTML='';
+      cart.forEach(function(i,idx){
+        var p=PRODUCTS.filter(function(x){return x.id===i.id;})[0];if(!p)return;
+        count+=i.qty;sub+=p.price*i.qty;
+        var row=document.createElement('div');row.className='ci';
+        row.innerHTML='<div class="thumb">'+ICON[p.icon]+'</div><div><b>'+p.name+'</b><small>Veličina '+i.size+' · '+fmt(p.price)+'</small><div class="qty"><button type="button" data-d="-1" data-i="'+idx+'" aria-label="Manje">−</button><span>'+i.qty+'</span><button type="button" data-d="1" data-i="'+idx+'" aria-label="Više">+</button></div></div><button class="rm" type="button" data-rm="'+idx+'">Ukloni</button>';
+        body.appendChild(row);
+      });
+    }
+    var disc=promoOn?sub*0.1:0;
+    $('#subT').textContent=fmt(sub);$('#discRow').style.display=promoOn&&sub?'flex':'none';$('#discT').textContent='−'+fmt(disc);$('#totT').textContent=fmt(sub-disc);
+    var cc=$('#cartCount');cc.textContent=count;cc.classList.toggle('show',count>0);
+  }
+  $('#cartBody').addEventListener('click',function(e){
+    var d=e.target.closest('[data-d]'),r=e.target.closest('[data-rm]');
+    if(d){var it=cart[+d.dataset.i];it.qty+=+d.dataset.d;if(it.qty<1)cart.splice(+d.dataset.i,1);save();renderCart();}
+    if(r){cart.splice(+r.dataset.rm,1);save();renderCart();}
+  });
+  $('#applyPromo').addEventListener('click',function(){
+    var v=$('#promoIn').value.trim().toUpperCase();
+    if(v==='FERRO10'){promoOn=true;toast('Promo kod primijenjen: −10 %');}else{promoOn=false;toast(v?'Nepoznat promo kod':'Unesite promo kod');}
+    renderCart();
+  });
+  $('#checkout').addEventListener('click',function(){toast(cart.length?'Ovo je demo trgovina — narudžba se ne provodi.':'Košarica je prazna.');});
+
+  /* ---------- drawer / modal ---------- */
+  var overlay=$('#overlay'),drawer=$('#drawer'),modal=$('#modal');
+  function openCart(){drawer.classList.add('open');overlay.classList.add('show');drawer.setAttribute('aria-hidden','false');}
+  function closeAll(){drawer.classList.remove('open');modal.classList.remove('open');overlay.classList.remove('show');drawer.setAttribute('aria-hidden','true');modal.setAttribute('aria-hidden','true');}
+  $('#openCart').addEventListener('click',openCart);$('#closeCart').addEventListener('click',closeAll);overlay.addEventListener('click',closeAll);$('#closeModal').addEventListener('click',closeAll);
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')closeAll();});
+  var mProd=null,mSize=null;
+  function openModal(id,size){
+    mProd=PBYID(id);mSize=(size&&mProd.sizes.indexOf(size)>-1)?size:mProd.sizes[Math.floor(mProd.sizes.length/2)];
+    $('#mCat').textContent=mProd.cat+' · '+mProd.brand;$('#mName').textContent=mProd.name;$('#mDesc').textContent=mProd.desc+(mProd.tip?' '+mProd.tip:'');$('#mPrice').textContent='oko '+fmt(mProd.price);
+    $('#mFeat').innerHTML=mProd.feat.map(function(f){return '<li>'+f+'</li>';}).join('');
+    $('#mSrc').href=mProd.src;$('#mSrc').textContent=mProd.srcLbl+' ↗';
+    var art=$('#mArt');$$('svg,img.photo',art).forEach(function(n){n.remove();});art.insertAdjacentHTML('beforeend',ICON[mProd.icon]+'');
+    var sz=$('#mSizes');sz.innerHTML='';
+    mProd.sizes.forEach(function(s){var b=document.createElement('button');b.type='button';b.textContent=s;if(s===mSize)b.className='on';b.addEventListener('click',function(){mSize=s;$$('button',sz).forEach(function(x){x.classList.toggle('on',x===b);});});sz.appendChild(b);});
+    modal.classList.add('open');overlay.classList.add('show');modal.setAttribute('aria-hidden','false');
+  }
+  $('#mAdd').addEventListener('click',function(){addToCart(mProd,mSize);closeAll();});
+
+  /* ---------- fit finder ---------- */
+  var SIZES=['XS','S','M','L','XL','XXL'];
+  function idx(v,t){for(var i=0;i<t.length;i++){if(v<t[i])return i;}return t.length;}
+  var bar=$('#rBar'),lbl=$('#rBarLbl'),recEl=$('#rec');
+  SIZES.forEach(function(s){bar.appendChild(document.createElement('i'));var sp=document.createElement('span');sp.textContent=s;lbl.appendChild(sp);});
+  var lastSize='';
+  function show(txt,i,note,label){
+    var el=$('#rSize');
+    if(txt!==lastSize){el.classList.add('pop');setTimeout(function(){el.classList.remove('pop');},220);lastSize=txt;}
+    el.textContent=txt;$('#rNote').textContent=note;$('#rLabel').textContent=label;
+    $$('i',bar).forEach(function(x,k){x.classList.toggle('on',k===i);});
+    $('#rBar').style.display=$('#rBarLbl').style.display=(i<0)?'none':'flex';
+  }
+  function rec(title,items,foot){
+    var h='<h4>'+title+'</h4>';
+    items.forEach(function(it){var p=PBYID(it.id);h+='<button type="button" data-rec="'+it.id+'" data-size="'+it.size+'">'+p.brand+' '+p.name+' <span>'+it.size+'</span></button>';});
+    if(foot)h+='<small>'+foot+'</small>';
+    recEl.innerHTML=h;
+  }
+  function has(id,sz){return PBYID(id).sizes.indexOf(sz)>-1;}
+  function calc(){
+    var tab=$('.tabs .on').dataset.tab;
+    if(tab==='odjeca'){
+      var b=+$('#sBust').value,w=+$('#sWaist').value,h=+$('#sHip').value;
+      $('#oBust').textContent=b+' cm';$('#oWaist').textContent=w+' cm';$('#oHip').textContent=h+' cm';
+      var ib=idx(b,[82,88,94,100,108]),iw=idx(w,[64,70,76,82,90]),ih=idx(h,[90,96,102,108,116]);
+      var i=Math.max(ib,iw,ih),note;
+      if(i===ib&&ib>=iw&&ib>=ih)note='Veličinu određuje opseg grudi.';
+      else if(i===ih&&ih>ib)note='Veličinu određuje opseg bokova — za sjedenje na motoru isplati se ostaviti malo prostora u kukovima.';
+      else note='Veličinu određuje opseg struka.';
+      var sz=SIZES[i];show(sz,i,note,'Preporučena veličina');
+      var items=[],foot='';
+      if(has(2,sz))items.push({id:2,size:sz});
+      if(has(3,sz))items.push({id:3,size:sz});
+      var gs=sz;if(!has(4,gs))gs='XL';
+      items.push({id:4,size:gs});
+      var wg=SIZES[Math.min(i+1,4)];items.push({id:5,size:wg});
+      var pz=i<=1?'S':(i===2?'M':'L');items.push({id:7,size:pz});
+      if(sz==='XS')foot='Stella Andes v3 ne postoji u veličini XS — za XS preporučujemo sportsku jaknu T-GP Plus R v3 Air.';
+      else if(sz==='XXL')foot='U veličini XXL dostupne su obje jakne, a rukavice do XL — za šire šake provjerite tablicu proizvođača.';
+      else foot='Za svakodnevnu vožnju i putovanja birajte Andes (vodootporna), a za sportsku vožnju po toplom T-GP Plus R. Rukavice Tourer W-7 prikazane su veličinu veće jer Alpinestars rukavice često padaju manje. Orijentacijska preporuka — provjerite tablicu proizvođača.';
+      rec('Preporučeni modeli za vas',items,foot);
+    }else if(tab==='kaciga'){
+      var hd=+$('#sHead').value;$('#oHead').textContent=hd+' cm';
+      var ih2=idx(hd,[54,56,58,60,62]);
+      var hs=SIZES[ih2];show(hs,ih2,'Ako ste između dvije veličine, odaberite manju — podstava se uležava.','Veličina kacige');
+      if(hd>=53&&hd<=59.9)rec('Preporučena kaciga',[{id:1,size:hs}],'Schuberth C4 Pro Women pokriva opsege glave od 53 do 59 cm. Sjedi relativno visoko, zato je preporuka isprobati je prije kupnje.');
+      else if(hd<53)recEl.innerHTML='<h4>Preporučena kaciga</h4><small>Za opseg glave ispod 53 cm trenutačno nemamo odgovarajući model. Javite nam se na kontakt — rado ćemo savjetovati.</small>';
+      else recEl.innerHTML='<h4>Preporučena kaciga</h4><small>Schuberth C4 Pro Women ide do opsega glave od 59 cm. Za veći opseg javite nam se na kontakt — rado ćemo savjetovati.</small>';
+    }else{
+      var ft=+$('#sFoot').value;$('#oFoot').textContent=ft;
+      show(String(ft),-1,'Veličina čizme odgovara vašoj EU veličini stopala.','Veličina čizama (EU)');
+      if(ft>=36&&ft<=42)rec('Preporučene čizme',[{id:6,size:String(ft)}],'Alpinestars Stella SMX-6 v2 dostupne su u veličinama EU 36–42. Ako ste između veličina, odaberite veću zbog debljih čarapa.');
+      else recEl.innerHTML='<h4>Preporučene čizme</h4><small>Stella SMX-6 v2 dostupne su u veličinama EU 36–42. Za vašu veličinu javite nam se na kontakt.</small>';
+    }
+  }
+  recEl.addEventListener('click',function(e){var b=e.target.closest('[data-rec]');if(b)openModal(+b.dataset.rec,b.dataset.size);});
+  $$('.fit input[type=range]').forEach(function(r){r.addEventListener('input',calc);});
+  $$('.tabs button').forEach(function(b){b.addEventListener('click',function(){$$('.tabs button').forEach(function(x){x.classList.toggle('on',x===b);});['odjeca','kaciga','cizme'].forEach(function(t){$('#tab-'+t).hidden=b.dataset.tab!==t;});calc();});});
+  calc();
+
+  /* ---------- compare toggle ---------- */
+  var cmp=$('#compare');
+  function setCmp(m){
+    cmp.dataset.mode=m;
+    $$('.toggle button',cmp).forEach(function(b){b.classList.toggle('on',b.dataset.mode===m);});
+    $$('.crow',cmp).forEach(function(r){var p=$('p',r);p.style.opacity=0;setTimeout(function(){p.textContent=p.dataset[m];p.style.opacity=1;},150);$('.tag',r).textContent=m==='ff'?'FerroFemme':'Prekrojeno';});
+  }
+  $$('.toggle button',cmp).forEach(function(b){b.addEventListener('click',function(){setCmp(b.dataset.mode);});});
+  $$('.crow p',cmp).forEach(function(p){p.textContent=p.dataset.ff;});$$('.crow .tag',cmp).forEach(function(t){t.textContent='FerroFemme';});
+
+  /* ---------- stories ---------- */
+  var stories=$$('.story'),dots=$('#dots'),si=0,st;
+  stories.forEach(function(_,i){var d=document.createElement('button');d.type='button';d.setAttribute('aria-label','Priča '+(i+1));d.addEventListener('click',function(){goStory(i,true);});dots.appendChild(d);});
+  function goStory(i,manual){si=(i+stories.length)%stories.length;stories.forEach(function(s,k){s.classList.toggle('on',k===si);});$$('button',dots).forEach(function(d,k){d.classList.toggle('on',k===si);});if(manual){clearInterval(st);}}
+  $('#prevStory').addEventListener('click',function(){goStory(si-1,true);});$('#nextStory').addEventListener('click',function(){goStory(si+1,true);});
+  goStory(0);st=setInterval(function(){goStory(si+1);},7000);
+
+  /* ---------- FAQ ---------- */
+  $$('.faq-item').forEach(function(it){var q=$('.faq-q',it),a=$('.faq-a',it);q.addEventListener('click',function(){
+    var open=it.classList.contains('open');
+    $$('.faq-item').forEach(function(o){o.classList.remove('open');$('.faq-a',o).style.maxHeight=0;$('.faq-q',o).setAttribute('aria-expanded','false');});
+    if(!open){it.classList.add('open');a.style.maxHeight=a.scrollHeight+'px';q.setAttribute('aria-expanded','true');}
+  });});
+
+  /* ---------- newsletter ---------- */
+  var mailRe=/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+  $('#nlForm').addEventListener('submit',function(e){
+    e.preventDefault();var inp=$('#nlEmail'),v=inp.value.trim();
+    if(!mailRe.test(v)){inp.classList.add('err');$('#nlErr').textContent='Unesite ispravnu e-mail adresu.';inp.focus();return;}
+    inp.classList.remove('err');$('#nlErr').textContent='';$('#nlForm').style.display='none';$('#nlNote').style.display='none';$('#promo').classList.add('show');toast('Prijava uspješna!');
+  });
+  $('#nlEmail').addEventListener('input',function(){this.classList.remove('err');$('#nlErr').textContent='';});
+  $('#copyCode').addEventListener('click',function(){
+    var t=$('#codeTxt').textContent;
+    if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(function(){toast('Kod kopiran');},function(){toast('Kod: '+t);});}else{toast('Kod: '+t);}
+  });
+
+  /* ---------- contact ---------- */
+  var cf=$('#contactForm');
+  cf.addEventListener('submit',function(e){
+    e.preventDefault();var ok=true;
+    function chk(id,test,msg){var f=$(id),h=f.parentNode.querySelector('.hint');if(test(f.value.trim())){f.classList.remove('err');h.textContent='';}else{f.classList.add('err');h.textContent=msg;ok=false;}}
+    chk('#cName',function(v){return v.length>1;},'Unesite svoje ime.');
+    chk('#cMail',function(v){return mailRe.test(v);},'Unesite ispravnu e-mail adresu.');
+    chk('#cMsg',function(v){return v.length>9;},'Poruka mora imati barem 10 znakova.');
+    if(ok){cf.style.display='none';$('#sent').classList.add('show');}
+  });
+  $('#again').addEventListener('click',function(){cf.reset();cf.style.display='block';$('#sent').classList.remove('show');});
+
+  /* ---------- menu, scroll effects ---------- */
+  var menu=$('#menu'),mb=$('#menuBtn');
+  mb.addEventListener('click',function(){var o=menu.classList.toggle('open');mb.setAttribute('aria-expanded',o);});
+  $$('#menu a').forEach(function(a){a.addEventListener('click',function(){menu.classList.remove('open');mb.setAttribute('aria-expanded','false');});});
+  var tt=$('#toTop');tt.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'});});
+  var secs=$$('main section[id]'),links=$$('#menu a');
+  function onScroll(){
+    tt.classList.toggle('show',window.scrollY>700);
+    var y=window.scrollY+120,cur='';
+    secs.forEach(function(s){if(s.offsetTop<=y)cur=s.id;});
+    links.forEach(function(a){a.classList.toggle('active',a.getAttribute('href')==='#'+cur);});
+  }
+  window.addEventListener('scroll',onScroll,{passive:true});onScroll();
+
+  /* reveal + counters */
+  function countUp(el){
+    var to=+el.dataset.count,suf=el.dataset.suffix||'',t0=null;
+    function step(t){if(!t0)t0=t;var p=Math.min((t-t0)/1200,1);el.textContent=Math.round(to*(1-Math.pow(1-p,3)))+suf;if(p<1)requestAnimationFrame(step);}
+    requestAnimationFrame(step);
+  }
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){es.forEach(function(en){if(en.isIntersecting){en.target.classList.add('in');$$('[data-count]',en.target).forEach(countUp);io.unobserve(en.target);}});},{threshold:.12});
+    $$('.reveal').forEach(function(r){io.observe(r);});
+  }else{$$('.reveal').forEach(function(r){r.classList.add('in');});$$('[data-count]').forEach(countUp);}
+
+  renderCart();
+})();
+</script>
+</body>
+</html>
